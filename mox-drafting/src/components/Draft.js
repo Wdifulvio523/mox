@@ -1,20 +1,18 @@
 import React from "react";
 import playerPoolData from "../server";
 import ReactTable from "react-table";
-import checkboxHOC from 'react-table/lib/hoc/selectTable';
+import checkboxHOC from "react-table/lib/hoc/selectTable";
 import "react-table/react-table.css";
 
 const CheckboxTable = checkboxHOC(ReactTable);
-
-
 
 class Draft extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      playerPool: playerPoolData,
-      selection: [], 
-   
+      playerPool: playerPoolData.DraftRankings,
+
+      selection: []
     };
   }
 
@@ -49,17 +47,21 @@ class Draft extends React.Component {
       for selection (either an array, object keys, or even a Javascript Set object).
     */
 
-    return this.state.selection.includes(key)
+    return this.state.selection.includes(key);
   };
 
   logSelection = () => {
     console.log("selection:", this.state.selection);
   };
 
+  draftPlayerHandler = event => {
+    event.preventDefault();
+  const playersLeft = this.state.playerPool.filter(
+      player => player.playerId !== this.state.selection[0]
+    );
 
-
-
-
+    this.setState({playerPool: playersLeft})
+  };
 
   render() {
     const { toggleSelection, isSelected, logSelection } = this;
@@ -70,38 +72,37 @@ class Draft extends React.Component {
     ];
 
     const checkboxProps = {
-        isSelected,
-        toggleSelection,
-        selectType: "checkbox",
-        getTrProps: (s, r) => {
-          // someone asked for an example of a background color change
-          // here it is...
-          console.log(r)
-        //   const selected = this.isSelected(r.original.playerId);
-
-          return {
-            style: {
-              backgroundColor: "inherit"
-              // color: selected ? 'white' : 'inherit',
-            }
-          };
-        }
-      };
+      isSelected,
+      toggleSelection,
+      selectType: "checkbox",
+      getTrProps: (s, r) => {
+        // someone asked for an example of a background color change
+        // here it is...
+        const selected = this.isSelected(r.original.playerId);
+        return {
+          style: {
+            backgroundColor: selected ? "lightgreen" : "inherit"
+            // color: selected ? 'white' : 'inherit',
+          }
+        };
+      }
+    };
 
     return (
       <div>
-         
         <CheckboxTable
-        ref={r => (this.checkboxTable = r)}
-        keyField= 'playerId'
-          data={this.state.playerPool.DraftRankings}
+          ref={r => (this.checkboxTable = r)}
+          keyField="playerId"
+          page={0}
+          pageSize={this.state.playerPool.length}
+          data={this.state.playerPool}
           columns={columns}
           className="-striped -highlight"
           defaultPageSize={10}
-          style={{height: '400px'}}
+          style={{ height: "400px" }}
           {...checkboxProps}
-        /> 
-         <button onClick={logSelection}>DRAFT PLAYER</button>
+        />
+        <button onClick={this.draftPlayerHandler}>DRAFT PLAYER</button>
       </div>
     );
   }
