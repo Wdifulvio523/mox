@@ -1,8 +1,14 @@
 {
   "name": "mox",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "./mox-drafting/src/index.js",
   "repository": "https://github.com/Wdifulvio523/mox.git",
   "author": "Wdifulvio523 <w.difulvio523@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
 }
