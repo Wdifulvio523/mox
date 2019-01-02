@@ -48,7 +48,8 @@ class Draft extends React.Component {
       callback and detect the selection state ourselves. This allows any implementation
       for selection (either an array, object keys, or even a Javascript Set object).
     */
-    return this.state.selection.includes(key);
+
+    return this.state.selection.includes(key)
   };
 
   logSelection = () => {
@@ -75,10 +76,12 @@ class Draft extends React.Component {
         getTrProps: (s, r) => {
           // someone asked for an example of a background color change
           // here it is...
-          const selected = this.isSelected(r.original._id);
+          console.log(r)
+        //   const selected = this.isSelected(r.original.playerId);
+
           return {
             style: {
-              backgroundColor: selected ? "lightgreen" : "inherit"
+              backgroundColor: "inherit"
               // color: selected ? 'white' : 'inherit',
             }
           };
@@ -87,7 +90,7 @@ class Draft extends React.Component {
 
     return (
       <div>
-          <button onClick={logSelection}>Log Selection</button>
+         
         <CheckboxTable
         ref={r => (this.checkboxTable = r)}
         keyField= 'playerId'
@@ -95,8 +98,10 @@ class Draft extends React.Component {
           columns={columns}
           className="-striped -highlight"
           defaultPageSize={10}
+          style={{height: '400px'}}
           {...checkboxProps}
         /> 
+         <button onClick={logSelection}>DRAFT PLAYER</button>
       </div>
     );
   }
