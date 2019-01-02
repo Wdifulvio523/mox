@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import "./App.css";
-
+import Draft from "./components/Draft";
 import LandingPage from "./components/LandingPage/LandingPage";
 
 class App extends Component {
@@ -8,6 +8,7 @@ class App extends Component {
     return (
       <div className="App">
         <LandingPage />
+        <Draft />
       </div>
     );
   }
