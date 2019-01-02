@@ -2,6 +2,7 @@
   "name": "mox-drafting",
   "version": "0.1.0",
   "private": true,
+  "main": "./mox-drafting/src/index.js",
   "dependencies": {
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
