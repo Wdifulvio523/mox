@@ -1,4 +1,5 @@
 import React from "react";
+import './Draft.css';
 
 const PlayerCard = props => {
   const selectedPlayer = props.playerPool.filter(player => {

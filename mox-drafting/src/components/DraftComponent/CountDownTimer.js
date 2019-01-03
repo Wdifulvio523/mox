@@ -1,4 +1,5 @@
 import React from "react";
+import './Draft.css'
 
 class CountDownTimer extends React.Component {
   constructor(props) {
@@ -47,7 +48,7 @@ class CountDownTimer extends React.Component {
         <button onClick={this.startTimer}>resume</button>
       ) : null;
     return (
-      <div>
+      <div className="timer">
         <h3>timer: {this.state.time}</h3>
         {start}
         {resume}

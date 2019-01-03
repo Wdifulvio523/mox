@@ -1,4 +1,5 @@
 import React from "react";
+import DraftOrder from "./DraftOrder";
 import playerPoolData from "../../server";
 import TeamTable from "./TeamTable";
 import PlayerCard from "./PlayerCard";
@@ -96,7 +97,9 @@ class Draft extends React.Component {
     };
 console.log('render?')
     return (
-      <div>
+      <div className="d-flex">
+        <DraftOrder/>
+        <div className="draft-content d-flex flex-wrap w-100">
         <PlayerCard
           playerPool={this.state.playerPool}
           selection={this.state.selection}
@@ -113,12 +116,12 @@ console.log('render?')
           columns={columns}
           className="-striped -highlight bg-moxred"
           defaultPageSize={10}
-          style={{ height: "400px", width: "70%" }}
+          style={{ height: "400px", width: "60%" }}
           {...checkboxProps}
         />
 
         <button
-                    className="btn btn-primary"
+          className="btn btn-primary d-none"
           onClick={event => {
             event.preventDefault();
             this.pickSelectedHandler();
@@ -130,6 +133,7 @@ console.log('render?')
         </button>
 
         <TeamTable teamPlayers={this.state.teamPlayers} />
+      </div>
       </div>
     );
   }
