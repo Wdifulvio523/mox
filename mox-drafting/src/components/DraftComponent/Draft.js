@@ -16,7 +16,7 @@ class Draft extends React.Component {
       playerPool: playerPoolData.DraftRankings,
       teamPlayers: [],
       selection: [],
-      pickSelected: false
+      pickSelected: false,
     };
   }
 
@@ -93,7 +93,7 @@ class Draft extends React.Component {
         };
       }
     };
-
+console.log('render?')
     return (
       <div>
         <PlayerCard
