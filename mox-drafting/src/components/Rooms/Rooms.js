@@ -11,6 +11,7 @@ class Rooms extends React.Component {
         <Room numOfTeams="10" />
         <Room numOfTeams="12" />
         <Room numOfTeams="14" />
+        <button>View All Drafts</button>
       </div>
     );
   }
