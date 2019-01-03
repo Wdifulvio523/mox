@@ -167,6 +167,50 @@ class Draft extends React.Component {
       }
     };
     return (
+<<<<<<< HEAD
+      <div className="d-flex">
+        <DraftOrder turn={this.state.turn} />
+        <div className="draft-content d-flex flex-wrap w-100">
+          <PlayerCard
+            playerPool={this.state.playerPool}
+            selection={this.state.selection}
+            draftPlayer={this.draftPlayer}
+            pickSelectedHandler={this.pickSelectedHandler}
+          />
+
+          <CountDownTimer
+            pickSelected={this.state.pickSelected}
+            autoDraft={this.autoDraft}
+            draftedPlayer={this.state.draftedPlayer}
+            turn={this.state.turn}
+          />
+
+          <CheckboxTable
+            ref={r => (this.checkboxTable = r)}
+            keyField="playerId"
+            page={0}
+            pageSize={this.state.playerPool.length}
+            data={this.state.playerPool}
+            columns={columns}
+            className="-striped -highlight bg-moxred"
+            defaultPageSize={10}
+            style={{height: "400px", width: "60%"}}
+            {...checkboxProps}
+          />
+
+          <button
+            className="btn btn-primary d-none"
+            onClick={event => {
+              event.preventDefault();
+              this.pickSelectedHandler();
+              this.draftPlayer();
+            }}
+          >
+            DRAFT PLAYER
+          </button>
+
+          <TeamTable teamPlayers={this.state.teamPlayers} />
+=======
       <div className="draft-page">
         <div className="nav-bar">
           <Link exact to="/">
@@ -215,6 +259,7 @@ class Draft extends React.Component {
 
             <TeamTable teamPlayers={this.state.teamPlayers} />
           </div>
+>>>>>>> 86f8ed7bf1b1e7b2ed3fd62887d92a3e41441bfa
         </div>
       </div>
     );

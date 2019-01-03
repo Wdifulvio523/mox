@@ -6,6 +6,8 @@
 .App .ReactTable .pagination-bottom .-pagination {
   display: none;
 }
+<<<<<<< HEAD
+=======
 
 .App .draft-page { 
   color: white; 
@@ -14,11 +16,15 @@
   left: 0;
 }
 
+>>>>>>> 86f8ed7bf1b1e7b2ed3fd62887d92a3e41441bfa
 .draft-content {
   display: flex;
   flex-wrap: wrap;
 }
+<<<<<<< HEAD
+=======
 
+>>>>>>> 86f8ed7bf1b1e7b2ed3fd62887d92a3e41441bfa
 .draft-order-list {
   list-style-type: none;
   padding: 0;
@@ -29,19 +35,42 @@
 }
 .your-turn {
   /* background: #51D88A; */
-  border-color: #51D88A;
-  color: #51D88A;
+  border-color: #51d88a;
+  color: #51d88a;
 }
 .draft-order-list .your-turn:hover {
+<<<<<<< HEAD
+  background-color: #1f9d55;
+  border-color: #1f9d55;
+=======
   background-color: #1F9D55;
   border-color: #1F9D55;
+>>>>>>> 86f8ed7bf1b1e7b2ed3fd62887d92a3e41441bfa
 }
 
 .timer {
   width: 47%;
   border: 1px red solid;
   height: 286px;
+  position: relative;
 }
+.w-custom-roster {
+  width: 40%;
+}
+
+.logger {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  background: #333;
+  color: white;
+  padding: 7px 14px;
+}
+
+.timer button {
+}
+<<<<<<< HEAD
+=======
 .w-custom-roster {
   width:40%
 }
@@ -51,3 +80,4 @@
   width: 53%;
   height: 286px;
 }
+>>>>>>> 86f8ed7bf1b1e7b2ed3fd62887d92a3e41441bfa
