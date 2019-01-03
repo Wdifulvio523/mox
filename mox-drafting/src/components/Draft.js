@@ -1,5 +1,6 @@
 import React from "react";
 import playerPoolData from "../server";
+import TeamTable from "./TeamTable";
 import ReactTable from "react-table";
 import checkboxHOC from "react-table/lib/hoc/selectTable";
 import "react-table/react-table.css";
@@ -11,7 +12,7 @@ class Draft extends React.Component {
     super(props);
     this.state = {
       playerPool: playerPoolData.DraftRankings,
-
+      teamPlayers: [],
       selection: []
     };
   }
@@ -54,21 +55,30 @@ class Draft extends React.Component {
     console.log("selection:", this.state.selection);
   };
 
-  draftPlayerHandler = event => {
-    event.preventDefault();
-  const playersLeft = this.state.playerPool.filter(
+  draftPlayer = event => {
+    const draftedPlayer = this.state.playerPool.filter(
+      player => player.playerId === this.state.selection[0]
+    );
+    const teamPlayers = this.state.teamPlayers.concat(draftedPlayer);
+    this.setState({ teamPlayers });
+  };
+
+  filterPlayerPool = event => {
+    const playersLeft = this.state.playerPool.filter(
       player => player.playerId !== this.state.selection[0]
     );
-
-    this.setState({playerPool: playersLeft})
+    this.setState({ playerPool: playersLeft, selection: [] });
   };
 
   render() {
     const { toggleSelection, isSelected, logSelection } = this;
     const columns = [
-      { Header: "Player", accessor: "displayName" },
-      { Header: "Position", accessor: "position" },
-      { Header: "Team", accessor: "team" }
+      { Header: "Player", accessor: "displayName", width: 150},
+      { Header: "Rank", accessor: "overallRank", width: 50 },
+      { Header: "Position", accessor: "position", width: 50 },
+      { Header: "Pos Rank", accessor: "positionRank", width: 50 },
+      { Header: "Team", accessor: "team", width: 50 },
+      { Header: "Bye", accessor: "byeWeek", width: 50 },
     ];
 
     const checkboxProps = {
@@ -99,10 +109,20 @@ class Draft extends React.Component {
           columns={columns}
           className="-striped -highlight"
           defaultPageSize={10}
-          style={{ height: "400px" }}
+          style={{  height: "400px", width: "80%" }}
           {...checkboxProps}
+          
         />
-        <button onClick={this.draftPlayerHandler}>DRAFT PLAYER</button>
+        <button
+          onClick={event => {
+            event.preventDefault();
+            this.draftPlayer();
+            this.filterPlayerPool();
+          }}
+        >
+          DRAFT PLAYER
+        </button>
+        <TeamTable teamPlayers={this.state.teamPlayers} />
       </div>
     );
   }
