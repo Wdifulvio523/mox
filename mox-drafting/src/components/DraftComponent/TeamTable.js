@@ -23,13 +23,13 @@ class TeamTable extends React.Component {
             { Header: "Bye", accessor: "byeWeek" },
           ]
         return ( 
-            <div>
+            <div className="w-custom-roster">
             {/* {this.props.teamPlayers.map(player => {return player.displayName})} */}
             <ReactTable
             data = {this.props.teamPlayers}
             columns = {columns} 
             className="-striped -highlight bg-secondary"
-              style={{ display: "flex", justifycontent: "center", height: "400px", width: "60%" }}
+              style={{ display: "flex", justifycontent: "center", height: "400px", width: "100%" }}
               />
             </div>
 
