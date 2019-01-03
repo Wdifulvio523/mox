@@ -7,13 +7,6 @@ html {
 }
 
 body {
-  background-image: linear-gradient(
-    13deg,
-    /* rgba(0, 0, 0, 1),
-    rgba(31, 31, 31, 1) */
-  );
-  /* color: #ffffff; */
-
   min-height: 100vh;
   font-size: 1.6rem;
 }
@@ -63,16 +56,4 @@ strong {
 
 .bg-moxred {
   background-color: #d73426;
-}
-
-/* .card-header {
-  color: white;
-} */
-
-/* DRAFT PAGE STYLES*/
-
-.player-card {
-  border: 1px solid black;
-  width: 53%;
-  height: 286px;
 }

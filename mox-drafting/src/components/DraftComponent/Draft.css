@@ -2,9 +2,14 @@
   background-color: #d73426;
 } */
 
+
 .App .ReactTable .pagination-bottom .-pagination {
   display: none;
 }
+.App { 
+  color: white; 
+}
+
 .draft-content{
   display: flex;
   flex-wrap: wrap;
@@ -34,4 +39,10 @@
 }
 .w-custom-roster{
   width:40%
+}
+
+.player-card {
+  border: 1px solid #212121;
+  width: 53%;
+  height: 286px;
 }
