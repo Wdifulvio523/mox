@@ -1,0 +1,11 @@
+.open-slots {
+  display: flex;
+}
+
+.open-slots .slot {
+  flex: 1 0 auto;
+}
+
+.starts-in {
+  background: rgb(51, 98, 185);
+}
