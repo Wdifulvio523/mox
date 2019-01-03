@@ -3,7 +3,7 @@ import Jumbotron from "../Jumbotron/Jumbotron";
 import Rooms from "../Rooms/Rooms";
 import ComingSoon from "../ComingSoon/ComingSoon";
 
-// import "./LandingPage.css";
+import "./LandingPage.css";
 
 class LandingPage extends React.Component {
   render() {

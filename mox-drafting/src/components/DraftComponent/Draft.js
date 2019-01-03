@@ -1,4 +1,6 @@
 import React from "react";
+import {Link} from "react-router-dom";
+import logo from "../moxdraft-logo-1.png";
 import DraftOrder from "./DraftOrder";
 import playerPoolData from "../../server";
 import TeamTable from "./TeamTable";
@@ -8,6 +10,7 @@ import ReactTable from "react-table";
 import checkboxHOC from "react-table/lib/hoc/selectTable";
 import "react-table/react-table.css";
 import "./Draft.css";
+
 
 const CheckboxTable = checkboxHOC(ReactTable);
 
@@ -164,6 +167,7 @@ class Draft extends React.Component {
       }
     };
     return (
+<<<<<<< HEAD
       <div className="d-flex">
         <DraftOrder turn={this.state.turn} />
         <div className="draft-content d-flex flex-wrap w-100">
@@ -206,6 +210,56 @@ class Draft extends React.Component {
           </button>
 
           <TeamTable teamPlayers={this.state.teamPlayers} />
+=======
+      <div className="draft-page">
+        <div className="nav-bar">
+          <Link exact to="/">
+            <img src={logo} alt="MoxDraft home" />
+          </Link>
+        </div>
+        <div className="d-flex draft-page">
+          <DraftOrder turn={this.state.turn} />
+          <div className="draft-content d-flex flex-wrap w-100">
+            <PlayerCard
+              playerPool={this.state.playerPool}
+              selection={this.state.selection}
+              draftPlayer={this.draftPlayer}
+              pickSelectedHandler={this.pickSelectedHandler}
+            />
+
+            <CountDownTimer
+              pickSelected={this.state.pickSelected}
+              autoDraft={this.autoDraft}
+              draftedPlayer={this.state.draftedPlayer}
+            />
+
+            <CheckboxTable
+              ref={r => (this.checkboxTable = r)}
+              keyField="playerId"
+              page={0}
+              pageSize={this.state.playerPool.length}
+              data={this.state.playerPool}
+              columns={columns}
+              className="-striped -highlight bg-moxred"
+              defaultPageSize={10}
+              style={{height: "400px", width: "60%"}}
+              {...checkboxProps}
+            />
+
+            <button
+              className="btn btn-primary d-none"
+              onClick={event => {
+                event.preventDefault();
+                this.pickSelectedHandler();
+                this.draftPlayer();
+              }}
+            >
+              DRAFT PLAYER
+            </button>
+
+            <TeamTable teamPlayers={this.state.teamPlayers} />
+          </div>
+>>>>>>> 86f8ed7bf1b1e7b2ed3fd62887d92a3e41441bfa
         </div>
       </div>
     );

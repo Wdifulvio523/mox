@@ -1,3 +1,7 @@
+body { 
+  background-image: linear-gradient(15deg, #010101, #232323);
+}
+
 .jumbotron {
   background-color: #131313;
   background-image: url("./nfl-footballs.jpg");
@@ -15,9 +19,6 @@
 
 .jumbotron h3 {
   font-size: 2.4rem;
-  padding: 12px 0;
-  font-style: italic;
-  font-weight: 600;
 }
 
 .jumbotron img {
@@ -25,9 +26,9 @@
   margin: 25px 0 0 0;
 }
 
-.jumbotron .taglines {
+/* .jumbotron .taglines {
   margin: 50px 0 0 0;
-}
+} */
 
 .jumbotron p {
   text-transform: none;
