@@ -4428,6 +4428,11 @@ lodash.defaults@^4.2.0:
   version "4.2.0"
   resolved "https://registry.yarnpkg.com/lodash.defaults/-/lodash.defaults-4.2.0.tgz#d09178716ffea4dde9e5fb7b37f6f0802274580c"
 
+lodash.isequal@^4.5.0:
+  version "4.5.0"
+  resolved "https://registry.yarnpkg.com/lodash.isequal/-/lodash.isequal-4.5.0.tgz#415c4478f2bcc30120c22ce10ed3226f7d3e18e0"
+  integrity sha1-QVxEePK8wwEgwizhDtMib30+GOA=
+
 lodash.memoize@^4.1.2:
   version "4.1.2"
   resolved "https://registry.yarnpkg.com/lodash.memoize/-/lodash.memoize-4.1.2.tgz#bcc6c49a42a2840ed997f323eada5ecd182e0bfe"
@@ -5605,7 +5610,7 @@ promise@^7.1.1:
   dependencies:
     asap "~2.0.3"
 
-prop-types@^15.5.10, prop-types@^15.6.0, prop-types@^15.6.1:
+prop-types@^15.5.10, prop-types@^15.6.0, prop-types@^15.6.1, prop-types@^15.6.2:
   version "15.6.2"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.6.2.tgz#05d5ca77b4453e985d60fc7ff8c859094a497102"
   dependencies:
@@ -5741,6 +5746,14 @@ rc@^1.0.1, rc@^1.1.6, rc@^1.2.7:
     ini "~1.3.0"
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
+
+react-countdown-now@^2.0.2:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/react-countdown-now/-/react-countdown-now-2.0.2.tgz#429c0dc19eade9a429584174061f47e0d9b55364"
+  integrity sha512-j7J6v74lQCBPIA1BwrpgJrBO3dBt2/1C91qE2uhtfI7Z4EVz4tncgMljW9JI8uKdzpXTAobb+TqF4MVpMt6Fog==
+  dependencies:
+    lodash.isequal "^4.5.0"
+    prop-types "^15.6.2"
 
 react-dev-utils@^5.0.1:
   version "5.0.1"
