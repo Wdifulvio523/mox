@@ -1,5 +1,6 @@
 import React from "react";
 import "./Draft.css";
+import Logger from "./Logger";
 
 class CountDownTimer extends React.Component {
   constructor(props) {
@@ -55,6 +56,7 @@ class CountDownTimer extends React.Component {
         {resume}
 
         {reset}
+        <Logger draftedPlayer={this.props.draftedPlayer} />
       </div>
     );
   }
