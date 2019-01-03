@@ -2,36 +2,52 @@
   background-color: #d73426;
 } */
 
+
 .App .ReactTable .pagination-bottom .-pagination {
   display: none;
 }
-.draft-content{
+
+.App .draft-page { 
+  color: white; 
+  position: absolute;
+  width: 100%;
+  left: 0;
+}
+
+.draft-content {
   display: flex;
   flex-wrap: wrap;
 }
-.draft-order-list{
+
+.draft-order-list {
   list-style-type: none;
   padding: 0;
 }
-.draft-order-list li:hover{
+.draft-order-list li:hover {
   background: red;
   color: white;
 }
-.your-turn{
+.your-turn {
   /* background: #51D88A; */
   border-color: #51D88A;
   color: #51D88A;
 }
-.draft-order-list .your-turn:hover{
+.draft-order-list .your-turn:hover {
   background-color: #1F9D55;
   border-color: #1F9D55;
 }
 
-.timer{
+.timer {
   width: 47%;
   border: 1px red solid;
   height: 286px;
 }
-.w-custom-roster{
+.w-custom-roster {
   width:40%
+}
+
+.player-card {
+  border: 1px solid #212121;
+  width: 53%;
+  height: 286px;
 }

@@ -1,8 +1,8 @@
 .nav-bar {
   background-color: black;
-  width: 100%;
   text-align: center;
   margin: -60px auto 0 auto;
+  width: 100%;
   position: absolute;
   left: 0;
 }
@@ -12,10 +12,10 @@
   margin: 10px auto;
 }
 
-.nav-bar .table-header {
+.table-header {
   background-color: #030303;
 }
 
-.nav-bar .table-rows {
+.table-rows {
   background-color: #131313;
 }

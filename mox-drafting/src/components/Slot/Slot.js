@@ -12,8 +12,8 @@ class Slot extends React.Component {
 
   render() {
     return (
-      <Link to="/draft">
-        <span className="slot">{this.props.slotNumber}</span>
+      <Link to="/draft" className="slot">
+        <span>{this.props.slotNumber}</span>
       </Link>
     );
   }

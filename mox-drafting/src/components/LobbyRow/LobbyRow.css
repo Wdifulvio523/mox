@@ -8,4 +8,36 @@
 
 .starts-in {
   background: rgb(51, 98, 185);
+  padding: 0 0 0 10px;
 }
+
+.table {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  margin: -5px 0 0 0;
+}
+
+thead { 
+  background-color: #131313; 
+  color: white;
+}
+
+.table td, .table th, .table thead th {
+  padding: 0;
+  border: 0;
+  color: white;
+}
+
+.table thead th { 
+  padding: 10px; 
+}
+
+.table td.starts-in { 
+  text-align: center;
+  font-family: monospace;
+  font-size: 2.2rem;
+  color: rgb(210, 200, 255);
+}
+
+
