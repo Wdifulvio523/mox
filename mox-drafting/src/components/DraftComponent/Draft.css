@@ -5,3 +5,33 @@
 .App .ReactTable .pagination-bottom .-pagination {
   display: none;
 }
+.draft-content{
+  display: flex;
+  flex-wrap: wrap;
+}
+.draft-order-list{
+  list-style-type: none;
+  padding: 0;
+}
+.draft-order-list li:hover{
+  background: red;
+  color: white;
+}
+.your-turn{
+  /* background: #51D88A; */
+  border-color: #51D88A;
+  color: #51D88A;
+}
+.draft-order-list .your-turn:hover{
+  background-color: #1F9D55;
+  border-color: #1F9D55;
+}
+
+.timer{
+  width: 47%;
+  border: 1px red solid;
+  height: 286px;
+}
+.w-custom-roster{
+  width:40%
+}
