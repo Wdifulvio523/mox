@@ -1,7 +1,7 @@
 import React from "react";
-// import "../App.css";
-import Room from "../Room/Room";
 import "./Rooms.css";
+import {Link} from "react-router-dom";
+import Room from "../Room/Room";
 
 class Rooms extends React.Component {
   render() {
@@ -11,7 +11,9 @@ class Rooms extends React.Component {
         <Room numOfTeams="10" />
         <Room numOfTeams="12" />
         <Room numOfTeams="14" />
-        <button>View All Drafts</button>
+        <Link to="/lobby">
+          <button>View All Drafts</button>
+        </Link>
       </div>
     );
   }
