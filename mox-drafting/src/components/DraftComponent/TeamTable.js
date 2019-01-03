@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactTable from "react-table";
 import "react-table/react-table.css";
+import "./Draft.css";
+
 
 
 class TeamTable extends React.Component {
@@ -26,7 +28,7 @@ class TeamTable extends React.Component {
             <ReactTable
             data = {this.props.teamPlayers}
             columns = {columns} 
-              className="-striped -highlight"
+            className="-striped -highlight bg-secondary"
               style={{ display: "flex", justifycontent: "center", height: "400px", width: "60%" }}
               />
             </div>

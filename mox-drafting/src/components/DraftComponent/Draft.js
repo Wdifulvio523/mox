@@ -6,6 +6,7 @@ import CountDownTimer from "./CountDownTimer";
 import ReactTable from "react-table";
 import checkboxHOC from "react-table/lib/hoc/selectTable";
 import "react-table/react-table.css";
+import "./Draft.css";
 
 const CheckboxTable = checkboxHOC(ReactTable);
 
@@ -110,13 +111,14 @@ console.log('render?')
           pageSize={this.state.playerPool.length}
           data={this.state.playerPool}
           columns={columns}
-          className="-striped -highlight"
+          className="-striped -highlight bg-moxred"
           defaultPageSize={10}
-          style={{ height: "400px", width: "80%" }}
+          style={{ height: "400px", width: "70%" }}
           {...checkboxProps}
         />
 
         <button
+                    className="btn btn-primary"
           onClick={event => {
             event.preventDefault();
             this.pickSelectedHandler();
