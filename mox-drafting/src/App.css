@@ -7,7 +7,6 @@ html {
 }
 
 body {
-<<<<<<< HEAD
   background-image: linear-gradient(
     13deg,
     rgba(0, 0, 0, 1),
@@ -15,8 +14,6 @@ body {
   );
   color: #ffffff;
 
-=======
->>>>>>> f34a081a6d4c0b0a6748bfd6656b1bcb7c1d5df7
   min-height: 100vh;
   font-size: 1.6rem;
 }

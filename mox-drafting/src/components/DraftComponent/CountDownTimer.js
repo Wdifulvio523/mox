@@ -12,7 +12,6 @@ class CountDownTimer extends React.Component {
       pickIsOn: false
     };
     this.startTimer = this.startTimer.bind(this);
-    this.resetTimer = this.resetTimer.bind(this);
   }
 
   //Starts the timer
@@ -22,42 +21,34 @@ class CountDownTimer extends React.Component {
     });
     this.timer = setInterval(() => {
       if (this.state.draftTime === 0) {
-        this.setState({draftIsOn: false, pickIsOn: true});
+        this.setState({ draftIsOn: false, pickIsOn: true });
       } else {
         this.setState({
           draftTime: this.state.draftTime - 1
         });
       }
       if (this.state.pickIsOn === true) {
-        this.props.autoDraft();
         this.setState({
           pickTime: this.state.pickTime - 1
         });
       }
+      // if (this.props.turn !== ) {
+      //   this.setState({pickTime: 59});
+      // }
     }, 1000);
   }
 
-  // startPickTimer() {
-  //   // this.setState({
-  //   //   pickTime: this.state.pickTime
-  //   // });
+  autoDraftOnClick() {
+    if (this.state.draftTime === 0) {
+      console.log('autodraftonclick2')
 
-  //   if (this.state.pickIsOn === true) {
-  //     this.timer = setInterval(() => {
-  //       if (this.state.pickTime === 0) {
-  //         this.setState({pickTime: 59});
-  //       } else {
-  //         this.setState({
-  //           pickTime: this.state.pickTime - 1
-  //         });
-  //       }
-  //     }, 1000);
-  //   }
-  // }
-
-  resetTimer() {
-    this.setState({draftTime: 0});
+      this.props.autoDraft();
+    }
   }
+componentDidMount() {
+    this.autoDraftOnClick();
+  }
+
 
   render() {
     return (
@@ -68,7 +59,13 @@ class CountDownTimer extends React.Component {
           <h3>Draft Begins: {this.state.draftTime}</h3>
         )}
         {this.state.draftTime === 9 ? (
-          <button onClick={this.startTimer}>start</button>
+          <button
+            onClick={() => {
+              this.startTimer();
+            }}
+          >
+            start
+          </button>
         ) : null}
         <Logger draftedPlayer={this.props.draftedPlayer} />
       </div>
