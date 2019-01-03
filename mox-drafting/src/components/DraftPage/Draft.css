@@ -1,0 +1,7 @@
+/* .App .ReactTable .rt-table .rt-thead {
+  background-color: #d73426;
+} */
+
+.App .ReactTable .pagination-bottom .-pagination {
+  display: none;
+}

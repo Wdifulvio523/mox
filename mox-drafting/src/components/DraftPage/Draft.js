@@ -1,9 +1,10 @@
 import React from "react";
-import playerPoolData from "../server";
+import playerPoolData from "../../server";
 import TeamTable from "./TeamTable";
 import ReactTable from "react-table";
 import checkboxHOC from "react-table/lib/hoc/selectTable";
 import "react-table/react-table.css";
+import "./Draft.css";
 
 const CheckboxTable = checkboxHOC(ReactTable);
 
@@ -38,7 +39,7 @@ class Draft extends React.Component {
       selection.push(key);
     }
     // update the state
-    this.setState({ selection });
+    this.setState({selection});
   };
 
   isSelected = key => {
@@ -60,25 +61,25 @@ class Draft extends React.Component {
       player => player.playerId === this.state.selection[0]
     );
     const teamPlayers = this.state.teamPlayers.concat(draftedPlayer);
-    this.setState({ teamPlayers });
+    this.setState({teamPlayers});
   };
 
   filterPlayerPool = event => {
     const playersLeft = this.state.playerPool.filter(
       player => player.playerId !== this.state.selection[0]
     );
-    this.setState({ playerPool: playersLeft, selection: [] });
+    this.setState({playerPool: playersLeft, selection: []});
   };
 
   render() {
-    const { toggleSelection, isSelected, logSelection } = this;
+    const {toggleSelection, isSelected, logSelection} = this;
     const columns = [
-      { Header: "Player", accessor: "displayName", width: 150},
-      { Header: "Rank", accessor: "overallRank", width: 50 },
-      { Header: "Position", accessor: "position", width: 50 },
-      { Header: "Pos Rank", accessor: "positionRank", width: 50 },
-      { Header: "Team", accessor: "team", width: 50 },
-      { Header: "Bye", accessor: "byeWeek", width: 50 },
+      {Header: "Player", accessor: "displayName", width: 150},
+      {Header: "Rank", accessor: "overallRank", width: 50},
+      {Header: "Position", accessor: "position", width: 50},
+      {Header: "Pos Rank", accessor: "positionRank", width: 50},
+      {Header: "Team", accessor: "team", width: 50},
+      {Header: "Bye", accessor: "byeWeek", width: 50}
     ];
 
     const checkboxProps = {
@@ -100,29 +101,33 @@ class Draft extends React.Component {
 
     return (
       <div>
-        <CheckboxTable
-          ref={r => (this.checkboxTable = r)}
-          keyField="playerId"
-          page={0}
-          pageSize={this.state.playerPool.length}
-          data={this.state.playerPool}
-          columns={columns}
-          className="-striped -highlight"
-          defaultPageSize={10}
-          style={{  height: "400px", width: "80%" }}
-          {...checkboxProps}
-          
-        />
-        <button
-          onClick={event => {
-            event.preventDefault();
-            this.draftPlayer();
-            this.filterPlayerPool();
-          }}
-        >
-          DRAFT PLAYER
-        </button>
-        <TeamTable teamPlayers={this.state.teamPlayers} />
+        <div className="player-pool">
+          <CheckboxTable
+            ref={r => (this.checkboxTable = r)}
+            keyField="playerId"
+            page={0}
+            pageSize={this.state.playerPool.length}
+            data={this.state.playerPool}
+            columns={columns}
+            className="-striped -highlight bg-moxred"
+            defaultPageSize={10}
+            style={{height: "400px", width: "70%"}}
+            {...checkboxProps}
+          />
+          <button
+            className="btn btn-primary"
+            onClick={event => {
+              event.preventDefault();
+              this.draftPlayer();
+              this.filterPlayerPool();
+            }}
+          >
+            DRAFT PLAYER
+          </button>
+        </div>
+        <div className="drafted-players">
+          <TeamTable teamPlayers={this.state.teamPlayers} />
+        </div>
       </div>
     );
   }

@@ -61,6 +61,10 @@ strong {
   border: none;
 }
 
+.bg-moxred {
+  background-color: #d73426;
+}
+
 /* .card-header {
   color: white;
 } */
