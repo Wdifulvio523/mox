@@ -28,7 +28,7 @@ export default class Lobby extends Component {
       <div>
         <div className="nav-bar">
           <Link exact to="/">
-            <img src={logo} alt="MoxDraft logo" />
+            <img src={logo} alt="MoxDraft home" />
           </Link>
         </div>
         <table class="table"> 

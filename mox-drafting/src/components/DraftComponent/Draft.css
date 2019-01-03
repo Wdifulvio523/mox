@@ -6,8 +6,12 @@
 .App .ReactTable .pagination-bottom .-pagination {
   display: none;
 }
-.App { 
+
+.App .draft-page { 
   color: white; 
+  position: absolute;
+  width: 100%;
+  left: 0;
 }
 
 .draft-content{
