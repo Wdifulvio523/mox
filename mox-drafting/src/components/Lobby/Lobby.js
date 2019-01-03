@@ -25,22 +25,29 @@ export default class Lobby extends Component {
 
   render() {
     return (
-      <div className="nav-bar">
-        <Link exact to="/">
-          <img src={logo} />
-        </Link>
-        <div className="row-header d-flex table-header">
-          <h4 className="w-25">Format</h4>
-          <h4 className="w-25">Teams</h4>
-          <h4 className="w-25">Open Slots</h4>
-          <h4 className="w-25">Starts In</h4>
+      <div>
+        <div className="nav-bar">
+          <Link exact to="/">
+            <img src={logo} />
+          </Link>
         </div>
-        <div className="table-rows">
-          <LobbyRow />
-          <LobbyRow />
-          <LobbyRow />
-          <LobbyRow />
-        </div>
+        <table class="table"> 
+          {/* <thead className="row-header d-flex table-header"> */}
+          <thead>
+            <tr>
+              <th scope="col"> <h4 className="">Format</h4></th>
+              <th scope="col"><h4 className="">Teams</h4></th>
+              <th scope="col"><h4 className="">Open Slots</h4></th>
+              <th scope="col"><h4 className="">Starts In</h4></th>
+            </tr>
+          </thead>
+          <tbody>
+            <LobbyRow />
+            <LobbyRow />
+            <LobbyRow />
+            <LobbyRow />
+          </tbody>
+        </table>
       </div>
     );
   }

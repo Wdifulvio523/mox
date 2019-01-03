@@ -9,3 +9,25 @@
 .starts-in {
   background: rgb(51, 98, 185);
 }
+
+.table {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  margin: -5px 0 0 0;
+}
+
+thead { 
+  background-color: #131313; 
+  color: white;
+}
+
+.table td, .table th, .table thead th {
+  padding: 0;
+  border: 0;
+}
+
+.table thead th { 
+  padding: 10px; 
+}
+

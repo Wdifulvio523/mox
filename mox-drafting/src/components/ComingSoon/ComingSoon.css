@@ -1,15 +1,17 @@
 .coming-soon {
+  color: white;
   margin-top: 10px;
 }
 .card {
   border-radius: 10px;
 }
 .card-header {
-  color: #212121;
+  color: #ffffff;
   background: #d73426;
-  font-size: 2.2rem;
-  z-index: 3;
+  font-size: 1.8rem;
+  font-style: unset;
   border-radius: 10px 10px 0 0;
+  z-index: 3;
 }
 
 .w-40 {
@@ -17,10 +19,10 @@
 }
 
 .soon-text {
-  font-size: 1.6rem;
-  color: #212121;
+  font-size: 1.4rem;
+  color: #000000;
   text-align: left;
-  padding: 5px;
+  padding: 10px;
   text-transform: initial;
 }
 .relative {
@@ -34,9 +36,10 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.123);
-  z-index: 2;
+  background-color: rgba(115, 115, 115, 0.35);
+  border-radius: 10px;
   cursor: pointer;
+  z-index: 2;
 }
 .text {
   position: absolute;
