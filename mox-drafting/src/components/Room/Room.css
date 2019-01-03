@@ -1,0 +1,24 @@
+.room {
+  width: 80%;
+  background: #d73426;
+  margin: 0 auto 20px;
+}
+
+.room p {
+  font-size: 12px;
+  font-weight: 200;
+  letter-spacing: 1px;
+  padding: 7px 0;
+  margin-bottom: 0;
+}
+
+.slots {
+  width: 100%;
+  display: flex;
+  /* justify-content: space-between; */
+  flex-grow: 1;
+}
+
+.slot {
+  flex: 1 0 auto;
+}

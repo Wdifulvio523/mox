@@ -1,0 +1,11 @@
+.slot {
+  background: #222;
+  padding: 7px 0;
+  font-size: 10px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.slot:hover {
+  background: #c43629c5;
+}
