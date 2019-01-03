@@ -1,5 +1,5 @@
 import React from "react";
-import './Draft.css'
+import "./Draft.css";
 
 class CountDownTimer extends React.Component {
   constructor(props) {
@@ -21,7 +21,8 @@ class CountDownTimer extends React.Component {
     if (this.state.isOn === true) {
       this.timer = setInterval(() => {
         if (this.state.time === 0) {
-          this.setState({ time: 59 });
+          this.props.autoDraft();
+          this.setState({time: 59});
         } else {
           this.setState({
             time: this.state.time - 1
@@ -32,19 +33,19 @@ class CountDownTimer extends React.Component {
   }
 
   resetTimer() {
-    this.setState({ time: 0 });
+    this.setState({time: 0});
   }
   render() {
     let start =
-      this.state.time == 9 ? (
+      this.state.time === 9 ? (
         <button onClick={this.startTimer}>start</button>
       ) : null;
     let reset =
-      this.state.time != 0 && !this.state.isOn ? (
+      this.state.time !== 0 && !this.state.isOn ? (
         <button onClick={this.resetTimer}>reset</button>
       ) : null;
     let resume =
-      this.state.time != 0 && !this.state.isOn ? (
+      this.state.time !== 0 && !this.state.isOn ? (
         <button onClick={this.startTimer}>resume</button>
       ) : null;
     return (
