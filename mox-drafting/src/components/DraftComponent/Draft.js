@@ -4,7 +4,6 @@ import playerPoolData from "../../server";
 import TeamTable from "./TeamTable";
 import PlayerCard from "./PlayerCard";
 import CountDownTimer from "./CountDownTimer";
-// import Logger from "./Logger";
 import ReactTable from "react-table";
 import checkboxHOC from "react-table/lib/hoc/selectTable";
 import "react-table/react-table.css";
@@ -43,26 +42,30 @@ class Draft extends React.Component {
   autoDraft = prevState => {
     setInterval(prevState => {
       if (
+        // Odd round
         this.state.turn !== this.state.draftPosition &&
         this.state.round % 2 === 1
       ) {
         const draftedPlayer = this.state.playerPool.shift();
         this.setState({turn: this.state.turn + 1, draftedPlayer});
       }
+      // Even round
       if (
         this.state.turn !== this.state.draftPosition &&
         this.state.round % 2 === 0
       ) {
-        this.state.playerPool.shift();
+        const draftedPlayer = this.state.playerPool.shift();
 
-        this.setState({turn: this.state.turn - 1});
+        this.setState({turn: this.state.turn - 1, draftedPlayer});
       }
+      // End of round or beginning of round
       if (this.state.turn === 10 || this.state.turn === 1) {
         this.setState({round: this.state.round + 1});
 
-        this.state.playerPool.shift();
+        const draftedPlayer = this.state.playerPool.shift();
+        this.setState({draftedPlayer});
       }
-
+      // Individual turn
       if (this.state.turn === this.state.draftPosition) {
         this.setState({myTurn: true});
       }
@@ -103,10 +106,10 @@ class Draft extends React.Component {
   //Adds selected player (this.state.selection) to a particular team
   //Removes player from playerPool
   draftPlayer = event => {
-    const draftedPlayer = this.state.playerPool.filter(
+    const draftedPlayerByUser = this.state.playerPool.filter(
       player => player.playerId === this.state.selection[0]
     );
-    const teamPlayers = this.state.teamPlayers.concat(draftedPlayer);
+    const teamPlayers = this.state.teamPlayers.concat(draftedPlayerByUser);
     const playersLeft = this.state.playerPool.filter(
       player => player.playerId !== this.state.selection[0]
     );
@@ -116,7 +119,8 @@ class Draft extends React.Component {
         selection: [],
         teamPlayers,
         myTurn: false,
-        turn: this.state.turn + 1
+        turn: this.state.turn + 1,
+        draftedPlayer: draftedPlayerByUser[0]
       });
     }
     if (this.state.round % 2 === 0) {
@@ -125,7 +129,8 @@ class Draft extends React.Component {
         selection: [],
         teamPlayers,
         myTurn: false,
-        turn: this.state.turn - 1
+        turn: this.state.turn - 1,
+        draftedPlayer: draftedPlayerByUser[0]
       });
     }
   };
@@ -172,8 +177,9 @@ class Draft extends React.Component {
           <CountDownTimer
             pickSelected={this.state.pickSelected}
             autoDraft={this.autoDraft}
+            draftedPlayer={this.state.draftedPlayer}
           />
-          {/* <Logger draftedPlayer={this.state.draftedPlayer} /> */}
+
           <CheckboxTable
             ref={r => (this.checkboxTable = r)}
             keyField="playerId"
