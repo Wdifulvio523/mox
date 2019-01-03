@@ -1,9 +1,22 @@
 import React from "react";
 import "./Slot.css";
+import {Link} from "react-router-dom";
 
-const Slot = props => {
-  // console.log(props);
-  return <span className="slot">{props.slotNumber}</span>;
-};
+class Slot extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+
+  assignSlotHandler = event => {};
+
+  render() {
+    return (
+      <Link to="/draft" className="slot">
+        <span>{this.props.slotNumber}</span>
+      </Link>
+    );
+  }
+}
 
 export default Slot;
