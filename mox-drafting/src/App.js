@@ -1,6 +1,8 @@
 import React, {Component} from "react";
 import "./App.css";
+
 import Draft from "./components/DraftComponent/Draft";
+
 import LandingPage from "./components/LandingPage/LandingPage";
 import Lobby from "./components/Lobby/Lobby";
 import {Route, Switch} from "react-router-dom";
