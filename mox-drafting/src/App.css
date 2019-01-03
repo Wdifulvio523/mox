@@ -10,10 +10,10 @@ body {
 
   background-image: linear-gradient(
     13deg,
-    rgba(0, 0, 0, 1),
-    rgba(31, 31, 31, 1)
+    /* rgba(0, 0, 0, 1),
+    rgba(31, 31, 31, 1) */
   );
-  color: #ffffff;
+  /* color: #ffffff; */
 
   min-height: 100vh;
   font-size: 1.6rem;
@@ -58,3 +58,11 @@ strong {
 /* .card-header {
   color: white;
 } */
+
+/* DRAFT PAGE STYLES*/
+
+.player-card {
+  border: 1px solid black;
+  width: 200px;
+  height: 200px;
+}

@@ -1,6 +1,8 @@
 import React from "react";
-import playerPoolData from "../server";
+import playerPoolData from "../../server";
 import TeamTable from "./TeamTable";
+import PlayerCard from "./PlayerCard";
+import CountDownTimer from './CountDownTimer';
 import ReactTable from "react-table";
 import checkboxHOC from "react-table/lib/hoc/selectTable";
 import "react-table/react-table.css";
@@ -13,7 +15,8 @@ class Draft extends React.Component {
     this.state = {
       playerPool: playerPoolData.DraftRankings,
       teamPlayers: [],
-      selection: []
+      selection: [],
+      pickSelected: false
     };
   }
 
@@ -55,6 +58,9 @@ class Draft extends React.Component {
     console.log("selection:", this.state.selection);
   };
 
+  pickSelectedHandler = (prevState) => {
+    this.setState({pickSelected: !prevState})
+  }
   draftPlayer = event => {
     const draftedPlayer = this.state.playerPool.filter(
       player => player.playerId === this.state.selection[0]
@@ -73,12 +79,12 @@ class Draft extends React.Component {
   render() {
     const { toggleSelection, isSelected, logSelection } = this;
     const columns = [
-      { Header: "Player", accessor: "displayName", width: 150},
+      { Header: "Player", accessor: "displayName", width: 150 },
       { Header: "Rank", accessor: "overallRank", width: 50 },
       { Header: "Position", accessor: "position", width: 50 },
       { Header: "Pos Rank", accessor: "positionRank", width: 50 },
       { Header: "Team", accessor: "team", width: 50 },
-      { Header: "Bye", accessor: "byeWeek", width: 50 },
+      { Header: "Bye", accessor: "byeWeek", width: 50 }
     ];
 
     const checkboxProps = {
@@ -100,6 +106,11 @@ class Draft extends React.Component {
 
     return (
       <div>
+        <PlayerCard
+          playerPool={this.state.playerPool}
+          selection={this.state.selection}
+        />
+        <CountDownTimer pickSelected={this.state.pickSelected}/>
         <CheckboxTable
           ref={r => (this.checkboxTable = r)}
           keyField="playerId"
@@ -109,13 +120,13 @@ class Draft extends React.Component {
           columns={columns}
           className="-striped -highlight"
           defaultPageSize={10}
-          style={{  height: "400px", width: "80%" }}
+          style={{ height: "400px", width: "80%" }}
           {...checkboxProps}
-          
         />
         <button
           onClick={event => {
             event.preventDefault();
+            this.pickSelectedHandler();
             this.draftPlayer();
             this.filterPlayerPool();
           }}
