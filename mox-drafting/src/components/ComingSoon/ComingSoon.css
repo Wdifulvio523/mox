@@ -1,0 +1,52 @@
+.coming-soon {
+  margin-top: 10px;
+}
+.card {
+  border-radius: 10px;
+}
+.card-header {
+  color: #212121;
+  background: #d73426;
+  font-size: 2.2rem;
+  z-index: 3;
+  border-radius: 10px 10px 0 0;
+}
+
+.w-40 {
+  width: 48%;
+}
+
+.soon-text {
+  font-size: 1.6rem;
+  color: #212121;
+  text-align: left;
+  padding: 5px;
+  text-transform: initial;
+}
+.relative {
+  position: relative;
+}
+.overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.123);
+  z-index: 2;
+  cursor: pointer;
+}
+.text {
+  position: absolute;
+  width: 100%;
+  top: 40%;
+  border-radius: 5px;
+  font-size: 2.6rem;
+  color: #d73426;
+  background: black;
+  text-align: center;
+  transform: rotate(320deg);
+  -ms-transform: rotate(340deg);
+}

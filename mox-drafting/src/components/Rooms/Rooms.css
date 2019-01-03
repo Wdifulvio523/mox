@@ -1,0 +1,17 @@
+.rooms {
+  background: rgb(3, 3, 3);
+  /* background-image: url("../footballfield.jpg");
+  background-blend-mode: overlay; */
+  padding: 20px 0;
+  box-shadow: 5px 5px 15px -2px rgba(0, 0, 0, 0.75);
+}
+
+p {
+  text-align: center;
+  text-transform: uppercase;
+  color: #f4f4f4;
+}
+
+.rooms h3 {
+  text-align: center;
+}

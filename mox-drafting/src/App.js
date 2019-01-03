@@ -8,7 +8,7 @@ class App extends Component {
     return (
       <div className="App">
         <LandingPage />
-        <Draft />
+        {/* <Draft /> */}
       </div>
     );
   }
