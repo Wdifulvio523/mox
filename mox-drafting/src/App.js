@@ -8,13 +8,17 @@ import Lobby from "./components/Lobby/Lobby";
 import {Route, Switch} from "react-router-dom";
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {};
+  }
   render() {
     return (
       <div className="App">
         <Switch>
           <Route exact path="/" component={LandingPage} />
-          <Route exact path="/lobby" component={Lobby} />
-          <Route exact path="/draft" component={Draft} />
+          <Route exact path="/lobby" render={() => <Lobby />} />
+          <Route exact path="/draft" render={() => <Draft />} />
         </Switch>
       </div>
     );

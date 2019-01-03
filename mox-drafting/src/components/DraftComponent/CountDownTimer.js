@@ -1,12 +1,15 @@
 import React from "react";
-import './Draft.css'
+import "./Draft.css";
+import Logger from "./Logger";
 
 class CountDownTimer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      time: 9,
-      isOn: true
+      draftTime: 9,
+      draftIsOn: false,
+      pickTime: 59,
+      pickIsOn: false
     };
     this.startTimer = this.startTimer.bind(this);
     this.resetTimer = this.resetTimer.bind(this);
@@ -15,45 +18,59 @@ class CountDownTimer extends React.Component {
   //Starts the timer
   startTimer() {
     this.setState({
-      time: this.state.time,
-      isOn: true
+      draftIsOn: true
     });
-    if (this.state.isOn === true) {
-      this.timer = setInterval(() => {
-        if (this.state.time === 0) {
-          this.setState({ time: 59 });
-        } else {
-          this.setState({
-            time: this.state.time - 1
-          });
-        }
-      }, 1000);
-    }
+    this.timer = setInterval(() => {
+      if (this.state.draftTime === 0) {
+        this.setState({draftIsOn: false, pickIsOn: true});
+      } else {
+        this.setState({
+          draftTime: this.state.draftTime - 1
+        });
+      }
+      if (this.state.pickIsOn === true) {
+        this.props.autoDraft();
+        this.setState({
+          pickTime: this.state.pickTime - 1
+        });
+      }
+    }, 1000);
   }
+
+  // startPickTimer() {
+  //   // this.setState({
+  //   //   pickTime: this.state.pickTime
+  //   // });
+
+  //   if (this.state.pickIsOn === true) {
+  //     this.timer = setInterval(() => {
+  //       if (this.state.pickTime === 0) {
+  //         this.setState({pickTime: 59});
+  //       } else {
+  //         this.setState({
+  //           pickTime: this.state.pickTime - 1
+  //         });
+  //       }
+  //     }, 1000);
+  //   }
+  // }
 
   resetTimer() {
-    this.setState({ time: 0 });
+    this.setState({draftTime: 0});
   }
+
   render() {
-    let start =
-      this.state.time == 9 ? (
-        <button onClick={this.startTimer}>start</button>
-      ) : null;
-    let reset =
-      this.state.time != 0 && !this.state.isOn ? (
-        <button onClick={this.resetTimer}>reset</button>
-      ) : null;
-    let resume =
-      this.state.time != 0 && !this.state.isOn ? (
-        <button onClick={this.startTimer}>resume</button>
-      ) : null;
     return (
       <div className="timer">
-        <h3>timer: {this.state.time}</h3>
-        {start}
-        {resume}
-
-        {reset}
+        {this.state.pickIsOn === true ? (
+          <h3> Time Remaining: {this.state.pickTime}</h3>
+        ) : (
+          <h3>Draft Begins: {this.state.draftTime}</h3>
+        )}
+        {this.state.draftTime === 9 ? (
+          <button onClick={this.startTimer}>start</button>
+        ) : null}
+        <Logger draftedPlayer={this.props.draftedPlayer} />
       </div>
     );
   }

@@ -1,5 +1,6 @@
 .slot {
   background: #222;
+  color: #aeaeae;
   padding: 7px 0;
   font-size: 10px;
   cursor: pointer;
@@ -8,4 +9,10 @@
 
 .slot:hover {
   background: #c43629c5;
+  color: white;
+}
+
+.slot .disabled { 
+  background: #444444;
+  color: black;
 }

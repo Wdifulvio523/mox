@@ -8,10 +8,10 @@ class Jumbotron extends React.Component {
     return (
       <div className="jumbotron">
         <h1>MoxDraft Live NFL Drafting</h1>
-        <img src={logo} />
+        <img src={logo} alt="MoxDraft logo" />
         {/* <img src=""> */}
         <h3>Live NFL Draft</h3>
-        <section class="taglines">
+        <section class="mt-0 mx-2">
           <p>
             <h5>Draft against your friends, LIVE</h5>
           </p>

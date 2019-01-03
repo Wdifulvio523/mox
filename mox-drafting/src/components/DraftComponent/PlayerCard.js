@@ -1,13 +1,12 @@
 import React from "react";
-import './Draft.css';
-
+import "./Draft.css";
 
 const PlayerCard = props => {
   const selectedPlayer = props.playerPool.filter(player => {
     return player.playerId === props.selection[0];
   });
-  console.log(selectedPlayer);
-  
+  // console.log(selectedPlayer);
+
   return (
     <div className="player-card d-flex ">
       {props.selection.length === 1 ? (
@@ -15,7 +14,15 @@ const PlayerCard = props => {
           <div>{selectedPlayer[0].displayName} </div>
           <div>{selectedPlayer[0].position} </div>
           <div>{selectedPlayer[0].overallRank} </div>
-          <div className="btn btn-sm btn-primary w-25">Draft</div>
+          <div
+            className="btn btn-sm btn-primary w-25"
+            onClick={() => {
+              props.pickSelectedHandler();
+              props.draftPlayer();
+            }}
+          >
+            Draft
+          </div>
         </div>
       ) : null}
     </div>
