@@ -178,6 +178,7 @@ class Draft extends React.Component {
             pickSelected={this.state.pickSelected}
             autoDraft={this.autoDraft}
             draftedPlayer={this.state.draftedPlayer}
+            turn={this.state.turn}
           />
 
           <CheckboxTable
