@@ -83,7 +83,7 @@ class CountDownTimer extends React.Component {
                 RD: <strong>{this.props.round}</strong>
               </span>
               <span>
-                PICK: <strong>YOU</strong>
+                PICK: <strong>{this.props.overallPick}</strong>
               </span>
             </div>
             <h3 className="time-remaining">
