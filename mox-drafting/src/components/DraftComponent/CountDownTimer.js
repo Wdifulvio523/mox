@@ -39,7 +39,7 @@ class CountDownTimer extends React.Component {
           turn: this.props.turn + 1
         });
       }
-    }, 500);
+    }, 1000);
   }
 
   static getDerivedStateFromProps(props, state) {
@@ -72,7 +72,7 @@ class CountDownTimer extends React.Component {
 
   render() {
     return (
-      <div className="timer">
+      <div className="timer d-flex flex-column text-center justify-content-center ">
         {this.state.pickIsOn === true ? (
           <h3>Time Remaining: {this.state.pickTime}</h3>
         ) : (
@@ -80,12 +80,13 @@ class CountDownTimer extends React.Component {
         )}
         {this.state.draftTime === 3 ? (
           <button
+            className="w-50 mx-auto btn btn-success"
             onClick={() => {
               this.startTimer();
               this.autoDraftOnClick();
             }}
           >
-            start
+            Start Draft
           </button>
         ) : null}
 

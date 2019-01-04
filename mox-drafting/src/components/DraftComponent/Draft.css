@@ -55,6 +55,7 @@
 }
 
 .timer button {
+  font-size: 1.4rem;
 }
 .w-custom-roster {
   width: 40%;
@@ -79,5 +80,5 @@
 
 .player-stats,
 .team-logo {
-  height: 264px;
+  height: 200px;
 }

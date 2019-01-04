@@ -22,7 +22,8 @@ body {
 }
 
 .jumbotron img {
-  max-width: 30vw;
+  width: 30vw;
+  max-width: 90%;
   margin: 25px 0 0 0;
 }
 
@@ -32,7 +33,7 @@ body {
 
 .jumbotron p {
   text-transform: none;
-  background-color: #5f5f5fb0;
+  background-color: #5f5f5f00;
   padding: 6px 20px 2.5px 20px;
   margin: 20px auto;
   max-width: 75%;

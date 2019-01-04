@@ -7,15 +7,15 @@
 }
 
 .starts-in {
-  background: rgb(51, 98, 185);
+  /* background: rgb(51, 98, 185); */
   padding: 0 0 0 10px;
 }
 
 .table {
   width: 100%;
+  max-width: 900px;
   position: absolute;
-  left: 0;
-  margin: -5px 0 0 0;
+  margin: -5px auto 0 auto;
 }
 
 thead { 
@@ -29,15 +29,32 @@ thead {
   color: white;
 }
 
-.table thead th { 
-  padding: 10px; 
-}
+.table thead th { padding: 10px; }
 
-.table td.starts-in { 
+.table td { padding-top: 5px; }
+.table tbody tr td.open-slots, .table tbody tr td.starts-in { padding-top: 0; }
+.table td.starts-in { vertical-align: middle; }
+
+.table tbody tr td.starts-in { 
+  color: white;
   text-align: center;
   font-family: monospace;
   font-size: 2.2rem;
-  color: rgb(210, 200, 255);
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 
+.w-100 {
+  border-bottom: 1px solid #333;
+  padding-top: 10px;
+  /* display: flex;
+  align-items: center; */
+}
 
+.w-100 .text-center {
+  padding-top: 12px;
+}
+
+.w-100 .slot {
+  margin-top: 8px;
+}

@@ -12,7 +12,7 @@ class Rooms extends React.Component {
         <Room numOfTeams="12" />
         <Room numOfTeams="14" />
         <Link to="/lobby">
-          <button>View All Drafts</button>
+          <button className="btn btn-moxred">Draft Lobby</button>
         </Link>
       </div>
     );
