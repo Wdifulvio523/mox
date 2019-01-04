@@ -3,7 +3,8 @@ import "./Draft.css";
 
 const DraftOrder = props => {
   return (
-    <div className="draft-order text-center">
+    
+    <div className="draft-order d-flex flex-column justify-content-between text-center">
       <h1>Draft Order</h1>
       <ul className="draft-order-list d-flex flex-column">
         <li

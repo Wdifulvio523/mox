@@ -45,10 +45,14 @@ thead {
 }
 
 .w-100 {
-  border-bottom: 1px solid #333;
   padding-top: 10px;
   /* display: flex;
   align-items: center; */
+}
+
+.lobby-row {
+  border-bottom: 1px solid #333;
+
 }
 
 .w-100 .text-center {

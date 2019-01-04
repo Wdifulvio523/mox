@@ -9,7 +9,7 @@ class CountDownTimer extends React.Component {
       draftTime: 3,
       draftIsOn: false,
       pickIsOn: false,
-      pickTime: 10
+      pickTime: 15
     };
     this.startTimer = this.startTimer.bind(this);
   }
@@ -77,7 +77,7 @@ class CountDownTimer extends React.Component {
           <div>
             <div className="on-the-clock">
               <span>
-                ON THE CLOCK: <strong>YOU</strong>
+                ON THE CLOCK: <strong>Team {this.props.turn}</strong>
               </span>
               <span>
                 RD: <strong>{this.props.round}</strong>
