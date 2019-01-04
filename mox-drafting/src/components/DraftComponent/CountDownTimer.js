@@ -33,12 +33,13 @@ class CountDownTimer extends React.Component {
         });
       }
       if (this.state.pickTime === 0) {
+        this.props.autoPick();
         this.setState({
           pickTime: this.state.pickTime + 10,
           turn: this.props.turn + 1
         });
       }
-    }, 1000);
+    }, 500);
   }
 
   static getDerivedStateFromProps(props, state) {
