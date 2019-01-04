@@ -1,5 +1,6 @@
 import React from "react";
 import "./Draft.css";
+import "./team-colors.css";
 import {teamArray} from "../../server";
 import nfl from "./team-logos/nfl.gif";
 
@@ -31,7 +32,7 @@ const PlayerCard = props => {
         </div>
 
         {props.selection.length < 2 ? (
-          <div className="d-flex    player-info">
+          <div className="d-flex player-info">
             <div className="d-flex align-items-end w-100">
               {props.myTurn === true ? (
                 <div
@@ -44,12 +45,18 @@ const PlayerCard = props => {
                   DRAFT
                 </div>
               ) : null}
-              <div className="d-flex justify-content-around w-100">
+              <div
+                className={`d-flex w-100 selected-player ${
+                  selectedPlayersTeam.length === 0
+                    ? ""
+                    : selectedPlayersTeam[0].team
+                }`}
+              >
                 {selectedPlayer.length !== 0 ? (
                   <div>
                     {/* <div>{selectedPlayer[0].overallRank} </div> */}
-                    <div>{selectedPlayer[0].displayName} </div>
-                    <div>{selectedPlayer[0].position} </div>
+                    <span>{selectedPlayer[0].displayName} </span>
+                    <span>{selectedPlayer[0].position} </span>
                   </div>
                 ) : null}
               </div>
