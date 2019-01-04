@@ -31,9 +31,10 @@ export default class Lobby extends Component {
             <img src={logo} alt="MoxDraft home" title="Back to homepage" />
           </Link>
         </div>
-        <div>
-          <h2>Lobby</h2>
+        <div className="banner">
+            
         </div>
+        <h2 className="text-center display-2 mb-4">Join a Draft</h2>
         <table class="table">
           <thead>
             <tr>

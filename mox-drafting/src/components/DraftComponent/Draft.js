@@ -271,6 +271,7 @@ class Draft extends React.Component {
             />
 
             <TeamTable teamPlayers={this.state.teamPlayers} />
+            
           </div>
         </div>
       </div>
