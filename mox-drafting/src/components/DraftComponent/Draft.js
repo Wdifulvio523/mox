@@ -30,11 +30,29 @@ class Draft extends React.Component {
     };
   }
 
+  autoPick = () => {
+    console.log("autopick");
+    if (!this.state.playerPool.length) {
+      return;
+    }
+    let autoPickedPlayer = this.state.playerPool.shift();
+    console.log(
+      `You autopicked ${autoPickedPlayer.displayName} at ${this.state.turn}`
+    );
+    this.state.teamPlayers.push(autoPickedPlayer);
+    if (this.state.round % 2 === 1) {
+      this.setState({turn: this.state.turn + 1});
+    }
+    if (this.state.round % 2 === 0) {
+      this.setState({turn: this.state.turn - 1});
+    }
+  };
+
   //re-setting and re-rendering the state every second to show players being removed from player pool
   componentDidMount() {
     this.interval = setInterval(
       () => this.setState({playerPool: this.state.playerPool}),
-      100
+      1000
     );
   }
   componentWillUnmount() {
@@ -177,9 +195,9 @@ class Draft extends React.Component {
     const columns = [
       {Header: "Player", accessor: "displayName", width: 150},
       {Header: "Rank", accessor: "overallRank", width: 50},
-      {Header: "Position", accessor: "position", width: 50},
-      {Header: "Pos Rank", accessor: "positionRank", width: 50},
-      {Header: "Team", accessor: "team", width: 50},
+      {Header: "Position", accessor: "position", width: 80},
+      {Header: "Pos Rank", accessor: "positionRank", width: 100},
+      {Header: "Team", accessor: "team", width: 80},
       {Header: "Bye", accessor: "byeWeek", width: 50}
     ];
 
@@ -221,6 +239,7 @@ class Draft extends React.Component {
               draftedPlayer={this.state.draftedPlayer}
               turn={this.state.turn}
               round={this.state.round}
+              autoPick={this.autoPick}
             />
 
             <CheckboxTable
@@ -230,7 +249,7 @@ class Draft extends React.Component {
               pageSize={this.state.playerPool.length}
               data={this.state.playerPool}
               columns={columns}
-              className="-striped -highlight bg-moxred"
+              className="-striped -highlight bg-moxred text-center"
               defaultPageSize={10}
               style={{height: "400px", width: "60%"}}
               {...checkboxProps}
