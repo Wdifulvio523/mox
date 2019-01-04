@@ -69,7 +69,7 @@ nav {
   position: absolute;
   top: 14px;
   display: flex;
-  width: 350px;
+  width: 390px;
   justify-content: space-around;
 }
 
@@ -78,6 +78,7 @@ nav a {
   text-decoration: none;
   font-size: 14px;
   padding-bottom: 3px;
+  text-transform: uppercase;
 }
 
 nav a:hover {

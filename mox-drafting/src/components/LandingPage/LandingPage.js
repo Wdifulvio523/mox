@@ -11,7 +11,7 @@ class LandingPage extends React.Component {
       <div className="landing-page">
         <header>
           <nav>
-            <a href="#">Blog</a>
+            <a href="#">Community</a>
             <a href="#">Research</a>
             <a href="#">Login</a>
             <a href="#">Signup</a>

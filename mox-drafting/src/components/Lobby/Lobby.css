@@ -1,7 +1,7 @@
 .nav-bar {
   background-color: black;
   text-align: center;
-  margin: -60px auto 0 auto;
+  margin: -80px auto 0 auto;
   width: 100%;
   position: absolute;
   left: 0;
@@ -18,4 +18,8 @@
 
 .table-rows {
   background-color: #131313;
+}
+
+.lobby h2 {
+  margin-top: 20px;
 }
