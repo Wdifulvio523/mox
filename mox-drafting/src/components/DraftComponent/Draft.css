@@ -43,21 +43,23 @@
 
 .timer {
   width: 47%;
-  border: 1px red solid;
+  border: 1px #444 solid;
   height: 286px;
   position: relative;
 }
+
 .w-custom-roster {
   width: 40%;
 }
 
 .logger {
   width: 100%;
+  height: 55px;
   position: absolute;
   bottom: 0;
   background: #333;
   color: white;
-  padding: 7px 14px;
+  padding: 15px 20px;
 }
 
 .timer button {
@@ -87,7 +89,7 @@
 
 .player-stats,
 .team-logo {
-  height: 200px;
+  height: 230px;
 }
 
 .team-logo img {
@@ -102,6 +104,40 @@
 }
 
 .selected-player span {
-  padding: 10px 20px;
+  padding: 10px 30px;
   font-size: 18px;
+}
+
+.draft-btn {
+  z-index: 2;
+  max-width: 100px;
+  position: absolute;
+  right: 20px;
+  bottom: 13px;
+  border-radius: 4px;
+}
+
+.time-remaining {
+  font-size: 100px;
+  font-weight: normal;
+  padding-bottom: 30px;
+}
+
+.on-the-clock {
+  color: #b3291c;
+  display: flex;
+  justify-content: space-around;
+  position: absolute;
+  top: 15px;
+  left: 30px;
+}
+
+.on-the-clock span {
+  /* margin-right: 20px; */
+}
+
+.on-the-clock strong {
+  color: #eee;
+  margin-right: 50px;
+  margin-left: 12px;
 }

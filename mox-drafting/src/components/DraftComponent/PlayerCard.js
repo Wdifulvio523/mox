@@ -36,7 +36,7 @@ const PlayerCard = props => {
             <div className="d-flex align-items-end w-100">
               {props.myTurn === true ? (
                 <div
-                  className="btn btn-sm btn-primary  w-100"
+                  className="btn btn-sm btn-primary  w-100 draft-btn"
                   onClick={() => {
                     props.pickSelectedHandler();
                     props.draftPlayer();
