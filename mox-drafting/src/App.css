@@ -66,10 +66,10 @@ strong {
 }
 
 .btn-xl {
-  padding: 1.0rem 2rem;
-	font-size: 1.75rem;
-	line-height: 1.5;
-  border-radius: .3rem;
+  padding: 1rem 1.75rem;
+  font-size: 1.75rem;
+  line-height: 1.5;
+  border-radius: 0.3rem;
   font-weight: 600;
   font-style: italic;
 }

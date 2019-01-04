@@ -1,16 +1,13 @@
-import React from 'react';
+import React from "react";
 import ReactTable from "react-table";
 import "react-table/react-table.css";
 import "./Draft.css";
 
-
-
 class TeamTable extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = { 
-         }
-    }
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
 
     
     render() { 
@@ -35,5 +32,5 @@ class TeamTable extends React.Component {
          );
     }
 }
- 
+
 export default TeamTable;

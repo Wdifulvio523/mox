@@ -11,7 +11,6 @@ import checkboxHOC from "react-table/lib/hoc/selectTable";
 import "react-table/react-table.css";
 import "./Draft.css";
 
-
 const CheckboxTable = checkboxHOC(ReactTable);
 
 class Draft extends React.Component {
@@ -21,14 +20,33 @@ class Draft extends React.Component {
       playerPool: playerPoolData.DraftRankings,
       teamPlayers: [],
       selection: [],
+      // selection: "",
       pickSelected: false,
-      draftPosition: 3,
+      draftPosition: 2,
       turn: 1,
       myTurn: false,
       round: 1,
       draftedPlayer: {}
     };
   }
+
+  autoPick = () => {
+    console.log("autopick");
+    if (!this.state.playerPool.length) {
+      return;
+    }
+    let autoPickedPlayer = this.state.playerPool.shift();
+    console.log(
+      `You autopicked ${autoPickedPlayer.displayName} at ${this.state.turn}`
+    );
+    this.state.teamPlayers.push(autoPickedPlayer);
+    if (this.state.round % 2 === 1) {
+      this.setState({turn: this.state.turn + 1});
+    }
+    if (this.state.round % 2 === 0) {
+      this.setState({turn: this.state.turn - 1});
+    }
+  };
 
   //re-setting and re-rendering the state every second to show players being removed from player pool
   componentDidMount() {
@@ -42,43 +60,78 @@ class Draft extends React.Component {
   }
 
   //Autodrafting when it's not the user's turn
-  autoDraft = prevState => {
-    setInterval(prevState => {
-      if (
-        // Odd round
-        this.state.turn !== this.state.draftPosition &&
-        this.state.round % 2 === 1
-      ) {
-        const draftedPlayer = this.state.playerPool.shift();
-        this.setState({turn: this.state.turn + 1, draftedPlayer});
-      }
-      // Even round
-      if (
-        this.state.turn !== this.state.draftPosition &&
-        this.state.round % 2 === 0
-      ) {
-        const draftedPlayer = this.state.playerPool.shift();
+  autoDraft = () => {
+    // console.log(this.state.playerPool.length);
+    if (!this.state.playerPool.length) {
+      return;
+    }
+    if (this.state.turn === 11) {
+      this.setState({round: this.state.round + 1, turn: this.state.turn - 1});
+    }
+    if (this.state.turn === 0) {
+      this.setState({round: this.state.round + 1, turn: this.state.turn + 1});
+    }
 
-        this.setState({turn: this.state.turn - 1, draftedPlayer});
-      }
-      // End of round or beginning of round
-      if (this.state.turn === 10 || this.state.turn === 1) {
-        this.setState({round: this.state.round + 1});
+    if (
+      // Odd round
+      // If not my turn or draft position turn
+      this.state.turn !== this.state.draftPosition &&
+      this.state.round % 2 === 1
+    ) {
+      console.log("oddRound Conditional");
+      // shift first player out of playerPool Array
+      const draftedPlayer = this.state.playerPool.shift();
+      console.log(
+        `CPU drafted: ${draftedPlayer.displayName} at ${this.state.turn}`
+      );
+      // Set state to turn +1 & place draftedPlayer into state
+      this.setState({turn: this.state.turn + 1, draftedPlayer});
+    }
+    // Even round
+    if (
+      // If not my turn or draft position turn
+      this.state.turn !== this.state.draftPosition &&
+      // And round is even
+      this.state.round % 2 === 0
+    ) {
+      console.log("evenRound Conditional");
+      // shift first player out of playerPool Array
+      const draftedPlayer = this.state.playerPool.shift();
+      console.log(
+        `CPU drafted: ${draftedPlayer.displayName} at ${this.state.turn}`
+      );
+      // Set state to turn +1 & place draftedPlayer into state
+      this.setState({turn: this.state.turn - 1, draftedPlayer});
+    }
+    // End of round or beginning of round
+    /* if (this.state.turn === 10 || this.state.turn === 0) {
+      this.setState({round: this.state.round + 1});
+      const draftedPlayer = this.state.playerPool.shift();
+      console.log(
+        `Round`,
+        this.state.round,
+        "playerpool",
+        this.state.playerPool.length
+      );
+      // set the draftedPlayer into state
+      this.setState({draftedPlayer});
+    } */
 
-        const draftedPlayer = this.state.playerPool.shift();
-        this.setState({draftedPlayer});
-      }
-      // Individual turn
-      if (this.state.turn === this.state.draftPosition) {
-        this.setState({myTurn: true});
-      }
-    }, 3000);
+    // Individual turn
+    // if state.turn is equal to state.draftPosition myTurn becomes true
+    if (this.state.turn === this.state.draftPosition) {
+      this.setState({myTurn: true});
+    }
   };
 
   // Toggling Selection of individual player to be drafted
   toggleSelection = (key, shift, row) => {
     let selection = [...this.state.selection];
+    // let selection = this.state.selection;
     const keyIndex = selection.indexOf(key);
+    if (this.state.myTurn === false) {
+      return;
+    }
     if (keyIndex >= 0) {
       selection = [
         ...selection.slice(0, keyIndex),
@@ -95,11 +148,6 @@ class Draft extends React.Component {
     return this.state.selection.includes(key);
   };
 
-  //log selection to console -- Not used
-  logSelection = () => {
-    console.log("selection:", this.state.selection);
-  };
-
   //DRAFT BUTTON METHODS
   // Toggling pick selected flag
   pickSelectedHandler = prevState => {
@@ -112,6 +160,7 @@ class Draft extends React.Component {
     const draftedPlayerByUser = this.state.playerPool.filter(
       player => player.playerId === this.state.selection[0]
     );
+    console.log("drafted player", draftedPlayerByUser.displayName);
     const teamPlayers = this.state.teamPlayers.concat(draftedPlayerByUser);
     const playersLeft = this.state.playerPool.filter(
       player => player.playerId !== this.state.selection[0]
@@ -161,11 +210,12 @@ class Draft extends React.Component {
         return {
           style: {
             backgroundColor: selected ? "lightgreen" : "inherit",
-            color: selected ? "white" : "inherit"
+            color: selected ? "black" : "inherit"
           }
         };
       }
     };
+
     return (
       <div className="draft-page">
         <div className="nav-bar">
@@ -188,6 +238,8 @@ class Draft extends React.Component {
               autoDraft={this.autoDraft}
               draftedPlayer={this.state.draftedPlayer}
               turn={this.state.turn}
+              round={this.state.round}
+              autoPick={this.autoPick}
             />
 
             <CheckboxTable
@@ -197,7 +249,7 @@ class Draft extends React.Component {
               pageSize={this.state.playerPool.length}
               data={this.state.playerPool}
               columns={columns}
-              className="-striped -highlight bg-moxred"
+              className="-striped -highlight bg-moxred text-center"
               defaultPageSize={10}
               style={{height: "400px", width: "60%"}}
               {...checkboxProps}
