@@ -54,12 +54,12 @@ export default class Lobby extends Component {
           </thead>
           <tbody>
             <LobbyRow starting="5" scoring="PPR" teams="10" />
-            <LobbyRow starting="5" scoring="Half-PPR" teams="10" />
+            <LobbyRow starting="7" scoring="Half-PPR" teams="10" />
             <LobbyRow starting="10" scoring="Standard" teams="10" />
             <LobbyRow starting="5" scoring="PPR" teams="12" />
             <LobbyRow starting="5" scoring="Half-PPR" teams="12" />
             <LobbyRow starting="10" scoring="Standard" teams="12" />
-            <LobbyRow starting="5" scoring="PPR" teams="14" />
+            <LobbyRow starting="7" scoring="PPR" teams="14" />
             <LobbyRow starting="5" scoring="Half-PPR" teams="14" />
             <LobbyRow starting="10" scoring="Standard" teams="14" />
           </tbody>

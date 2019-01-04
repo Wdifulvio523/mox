@@ -25,7 +25,7 @@ class LobbyRow extends React.Component {
 
     return (
       
-      <tr className="w-100">
+      <tr className="w-100 lobby-row">
         <td className="text-center ">{this.props.scoring}</td>
         <td className="text-center ">{this.props.teams}</td>
         <td className="open-slots text-center ">
@@ -42,9 +42,13 @@ class LobbyRow extends React.Component {
               <Countdown date={Date.now() + 299000}
               renderer={renderer} />
               :
-              <Countdown date={Date.now() + 599000}
+              ( this.props.starting === '7' ? 
+              <Countdown date={Date.now() + 394000}
               renderer={renderer} />
-
+              :
+              <Countdown date={Date.now() + 596000}
+              renderer={renderer} />
+              )
             }
           </div>
         </td>

@@ -18,9 +18,7 @@ const Room = props => {
       <div className="slots d-flex">
         {slots.map(num => {
           if (num <= Number(props.numOfTeams)) {
-            console.log("props", props.numOfTeams);
-            console.log("num", num);
-            return <Slot slotNumber={num} />;
+            return <Slot slotNumber={num} key={Math.random()}/>;
           }
         })}
       </div>

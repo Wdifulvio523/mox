@@ -10,32 +10,32 @@ const PlayerCard = props => {
   const selectedPlayer = props.playerPool.filter(player => {
     return player.playerId === props.selection[0];
   });
-  // console.log(selectedPlayer);
+  
   const selectedPlayersTeam = props.logoArray.filter(player => {
     if (selectedPlayer.length === 0) return;
     return player.team === selectedPlayer[0].team;
   });
-  console.log(selectedPlayersTeam);
+
   return (
     <div className="player-card d-flex ">
       <section className="container-fluid">
         <div className="row">
-          <div className="col-6  bg-dark   player-stats">
+          <div className="col-6  bg-dkgray   player-stats">
           {selectedPlayer.length !== 0 ? (
                   <div class="d-flex text-center justify-content-center display-4 flex-column h-100">
                     <span>{selectedPlayer[0].displayName} </span>
                     <div>
-                      <span>{selectedPlayer[0].position} </span>
+                      <span>{selectedPlayer[0].position} - </span>
                       <span>{selectedPlayer[0].team} </span>
-                      <span>{`Bye:${selectedPlayer[0].byeWeek}`} </span>
                     </div>
+                      <span>{`Bye: ${selectedPlayer[0].byeWeek}`} </span>
                   </div>
                 ) : null}
             
           </div>
           <div className="col-6  bg-dkgray   team-logo">
             <img
-              className="h-100 w-100"
+              className=""
               src={
                 selectedPlayersTeam.length === 0
                   ? `${nfl}`
@@ -49,9 +49,9 @@ const PlayerCard = props => {
         {props.selection.length < 2 ? (
           <div className="d-flex player-info">
             <div className="d-flex align-items-end w-100">
-              {props.myTurn === true ? (
+              {props.selection.length === 1 && props.myTurn === true ? (
                 <div
-                  className="btn btn-sm btn-primary  w-100 draft-btn"
+                  className="btn btn-sm btn-primary draft-btn"
                   onClick={() => {
                     props.pickSelectedHandler();
                     props.draftPlayer();
