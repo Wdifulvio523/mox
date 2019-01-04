@@ -31,6 +31,9 @@ export default class Lobby extends Component {
             <img src={logo} alt="MoxDraft home" title="Back to homepage" />
           </Link>
         </div>
+        <div className="banner">
+            
+        </div>
         <div>
           <h2>Lobby</h2>
         </div>

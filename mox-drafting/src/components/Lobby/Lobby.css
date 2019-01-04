@@ -23,3 +23,12 @@
 .lobby h2 {
   margin-top: 20px;
 }
+
+.banner{
+  height: 350px;
+  width: 100%;
+  max-width: 900px;
+  background:  url(https://media.giphy.com/media/4GXLbgLH5Vf8M96Zvw/giphy.gif) no-repeat center center fixed; 
+  background-size: cover;
+  margin: 0 auto;
+}
