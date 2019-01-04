@@ -8,7 +8,7 @@ const DraftOrder = props => {
       <ul className="draft-order-list d-flex flex-column">
         <li
           className={`btn btn-xl btn-outline-danger rounded-0 text-uppercase ${
-            props.turn === 1 ? "your-turn" : null
+            props.turn <= 1 ? "your-turn" : null
           }`}
         >
           Team 1
@@ -71,7 +71,7 @@ const DraftOrder = props => {
         </li>
         <li
           className={`btn btn-xl btn-outline-danger rounded-0 text-uppercase ${
-            props.turn === 10 ? "your-turn" : null
+            props.turn >= 10 ? "your-turn" : null
           }`}
         >
           Team 10

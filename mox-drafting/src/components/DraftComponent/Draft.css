@@ -2,13 +2,12 @@
   background-color: #d73426;
 } */
 
-
 .App .ReactTable .pagination-bottom .-pagination {
   display: none;
 }
 
-.App .draft-page { 
-  color: white; 
+.App .draft-page {
+  color: white;
   position: absolute;
   width: 100%;
   left: 0;
@@ -32,8 +31,8 @@
   color: #51d88a;
 }
 .draft-order-list .your-turn:hover {
-  background-color: #1F9D55;
-  border-color: #1F9D55;
+  background-color: #1f9d55;
+  border-color: #1f9d55;
 }
 
 .timer {
@@ -58,11 +57,22 @@
 .timer button {
 }
 .w-custom-roster {
-  width:40%
+  width: 40%;
 }
 
+/* Draft pick select table */
+.rt-tbody {
+  background-color: #212121;
+}
+
+/* Player Card */
 .player-card {
-  border: 1px solid #212121;
+  /* border: 1px solid #212121; */
   width: 53%;
   height: 286px;
+}
+
+.player-stats,
+.team-logo {
+  height: 264px;
 }
