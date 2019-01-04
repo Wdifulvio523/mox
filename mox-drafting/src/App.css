@@ -1,5 +1,9 @@
-* { box-sizing: border-box; }
-html { font-size: 62.5%; }
+* {
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+}
 
 body {
   background-image: linear-gradient(
@@ -40,7 +44,9 @@ h5 {
   font-weight: 300;
 }
 
-strong { font-weight: 600; }
+strong {
+  font-weight: 600;
+}
 
 .App {
   max-width: 950px;
@@ -53,10 +59,44 @@ strong { font-weight: 600; }
   border: none;
 }
 
+/* Nav */
+header {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+nav {
+  position: absolute;
+  top: 14px;
+  display: flex;
+  width: 350px;
+  justify-content: space-around;
+}
+
+nav a {
+  color: #ccc;
+  text-decoration: none;
+  font-size: 14px;
+  padding-bottom: 3px;
+}
+
+nav a:hover {
+  color: white;
+  text-decoration: none;
+  border-bottom: 2px solid #d73426;
+  transition: 0.2s;
+}
+
 /* Colors */
-.bg-moxred { background-color: #d73426; }
-.bg-black { background-color: #030303; }
-.bg-dkgray { background-color: #252525; }
+.bg-moxred {
+  background-color: #d73426;
+}
+.bg-black {
+  background-color: #030303;
+}
+.bg-dkgray {
+  background-color: #252525;
+}
 
 /* Buttons */
 .btn-xl {
@@ -67,8 +107,9 @@ strong { font-weight: 600; }
   font-weight: 600;
   font-style: italic;
 }
-.btn-group-md>.btn, .btn-md {
-  padding: .3rem .6rem;
+.btn-group-md > .btn,
+.btn-md {
+  padding: 0.3rem 0.6rem;
   font-size: 1.6rem;
   line-height: 1.5;
   border-radius: 0;

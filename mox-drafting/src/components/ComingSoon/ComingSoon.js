@@ -7,8 +7,8 @@ class ComingSoon extends React.Component {
     return (
       <div className="coming-soon mt-5">
         <h3 className="text-center">Coming Soon</h3>
-        <div className=" d-flex flex-row justify-content-around">
-          <div className="w-40 card relative">
+        <div className=" d-flex flex-column justify-content-around">
+          <div className="w-80 card relative">
             <div className="overlay">
               {/* <div className="text">Coming Soon</div> */}
             </div>
@@ -19,7 +19,7 @@ class ComingSoon extends React.Component {
               as you want!
             </p>
           </div>
-          <div className="w-40 card relative">
+          <div className="w-80 card relative">
             <div className="overlay">
               {/* <div className="text">Coming Soon</div> */}
             </div>

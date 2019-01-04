@@ -82,3 +82,7 @@
 .team-logo {
   height: 200px;
 }
+
+.team-logo img {
+  width: 400px;
+}

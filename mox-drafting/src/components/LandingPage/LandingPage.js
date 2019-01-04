@@ -9,6 +9,14 @@ class LandingPage extends React.Component {
   render() {
     return (
       <div className="landing-page">
+        <header>
+          <nav>
+            <a href="#">Blog</a>
+            <a href="#">Research</a>
+            <a href="#">Login</a>
+            <a href="#">Signup</a>
+          </nav>
+        </header>
         <section className="container-fluid">
           <div className="row">
             <div className="col-7">
