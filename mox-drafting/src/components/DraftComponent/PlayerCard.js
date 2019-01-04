@@ -21,11 +21,12 @@ const PlayerCard = props => {
           <div className="col-6  bg-dark   player-stats">player stats</div>
           <div className="col-6  bg-dkgray   team-logo">
             <img
-              // src={
-              //   selectedPlayersTeam.length === 0
-              //     ? `${nfl}`
-              //     : `${selectedPlayersTeam[0].file}`
-              // }
+              className="h-100 w-100"
+              src={
+                selectedPlayersTeam.length === 0
+                  ? `${nfl}`
+                  : `${selectedPlayersTeam[0].file}`
+              }
               alt="team-logo"
             />
           </div>
