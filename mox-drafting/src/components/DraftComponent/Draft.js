@@ -26,8 +26,7 @@ class Draft extends React.Component {
       turn: 1,
       myTurn: false,
       round: 1,
-      draftedPlayer: {},
-
+      draftedPlayer: {}
     };
   }
 
@@ -86,7 +85,7 @@ class Draft extends React.Component {
       );
       this.setState({turn: this.state.turn + 1, draftedPlayer});
       if (this.state.selection[0] === draftedPlayer.playerId) {
-        this.setState({selection: []})
+        this.setState({selection: []});
       }
     }
     // Even round
@@ -101,8 +100,8 @@ class Draft extends React.Component {
       // Set state to turn +1 & place draftedPlayer into state
       this.setState({turn: this.state.turn - 1, draftedPlayer});
 
-      if (this.state.selection[0]=== draftedPlayer.playerId) {
-        this.setState({selection: []})
+      if (this.state.selection[0] === draftedPlayer.playerId) {
+        this.setState({selection: []});
       }
     }
     // Individual turn
@@ -211,7 +210,7 @@ class Draft extends React.Component {
             <img src={logo} alt="MoxDraft home" title="Back to homepage" />
           </Link>
         </div>
-        <div className="d-flex draft-page">
+        <div className="d-flex ">
           <DraftOrder turn={this.state.turn} />
           <div className="draft-content d-flex flex-wrap w-100">
             <PlayerCard

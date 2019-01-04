@@ -20,18 +20,18 @@ const PlayerCard = props => {
           <div className="col-6  bg-dark   player-stats">player stats</div>
           <div className="col-6  bg-dkgray   team-logo">
             <img
-              src={
-                selectedPlayersTeam.length === 0
-                  ? `${nfl}`
-                  : `${selectedPlayersTeam[0].file}`
-              }
+              // src={
+              //   selectedPlayersTeam.length === 0
+              //     ? `${nfl}`
+              //     : `${selectedPlayersTeam[0].file}`
+              // }
               alt="team-logo"
             />
           </div>
         </div>
 
         {props.selection.length < 2 ? (
-          <div className="d-flex  justify-content-around  align-items-end   player-info">
+          <div className="d-flex    player-info">
             <div className="d-flex align-items-end w-100">
               {props.myTurn === true ? (
                 <div
@@ -44,10 +44,10 @@ const PlayerCard = props => {
                   DRAFT
                 </div>
               ) : null}
-              <div className="d-flex justify-content-around w-100 bg-black">
+              <div className="d-flex justify-content-around w-100">
                 {selectedPlayer.length !== 0 ? (
                   <div>
-                    <div>{selectedPlayer[0].overallRank} </div>
+                    {/* <div>{selectedPlayer[0].overallRank} </div> */}
                     <div>{selectedPlayer[0].displayName} </div>
                     <div>{selectedPlayer[0].position} </div>
                   </div>

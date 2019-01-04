@@ -8,14 +8,20 @@
 
 .App .draft-page {
   color: white;
-  position: absolute;
+  /* position: absolute; */
   width: 100%;
   left: 0;
+  margin: 20px auto 0;
 }
 
 .draft-content {
   display: flex;
   flex-wrap: wrap;
+}
+
+/* DraftOrder.js */
+.draft-order {
+  margin-right: 15px;
 }
 .draft-order-list {
   list-style-type: none;
