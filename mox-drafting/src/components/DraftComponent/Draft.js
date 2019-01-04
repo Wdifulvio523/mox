@@ -193,12 +193,12 @@ class Draft extends React.Component {
     //creating table
     const {toggleSelection, isSelected, logSelection} = this;
     const columns = [
-      {Header: "Player", accessor: "displayName", width: 150},
-      {Header: "Rank", accessor: "overallRank", width: 50},
-      {Header: "Position", accessor: "position", width: 80},
-      {Header: "Pos Rank", accessor: "positionRank", width: 100},
-      {Header: "Team", accessor: "team", width: 80},
-      {Header: "Bye", accessor: "byeWeek", width: 50}
+      {Header: "Player ↕", accessor: "displayName", width: 150},
+      {Header: "Rank ", accessor: "overallRank", width: 80},
+      {Header: "Position ", accessor: "position", width: 100},
+      {Header: "Pos Rank ", accessor: "positionRank", width: 80},
+      {Header: "Team ", accessor: "team", width: 80},
+      {Header: "Bye ", accessor: "byeWeek", width: 80}
     ];
 
     const checkboxProps = {
