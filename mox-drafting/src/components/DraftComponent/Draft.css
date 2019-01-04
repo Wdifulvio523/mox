@@ -68,7 +68,6 @@
 
 /* Player Card */
 .player-card {
-  /* border: 1px solid #212121; */
   width: 53%;
   height: 286px;
 }
@@ -78,7 +77,11 @@
   width: calc(100% + 30px);
 }
 
-.player-stats,
-.team-logo {
-  height: 200px;
+.player-stats, .team-logo { height: 200px; }
+
+.team-logo img { 
+  height: 100%; 
+  max-width: 100%;
+  display: block;
+  margin: 0 auto;
 }

@@ -1,7 +1,7 @@
 import React from "react";
 import "./Draft.css";
 import {teamArray} from '../../server';
-import nfl from './team-logos/nfl.gif'
+import nfl from './team-logos/nfl-spinner.gif'
 
 const PlayerCard = props => {
   const selectedPlayer = props.playerPool.filter(player => {
