@@ -61,10 +61,12 @@ strong {
   border: none;
 }
 
-.bg-moxred {
-  background-color: #d73426;
-}
+/* Colors */
+.bg-moxred { background-color: #d73426; }
+.bg-black { background-color: #030303; }
+.bg-dkgray { background-color: #252525; }
 
+/* Buttons */
 .btn-xl {
   padding: 1rem 1.75rem;
   font-size: 1.75rem;
@@ -72,4 +74,15 @@ strong {
   border-radius: 0.3rem;
   font-weight: 600;
   font-style: italic;
+}
+.btn-group-md>.btn, .btn-md {
+  padding: .3rem .6rem;
+  font-size: 1.6rem;
+  line-height: 1.5;
+  border-radius: 0;
+}
+.btn-moxred {
+  color: #fff;
+  background-color: #d73426;
+  border-color: #d73426;
 }
