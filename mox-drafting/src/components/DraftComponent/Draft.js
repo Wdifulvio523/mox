@@ -26,8 +26,8 @@ class Draft extends React.Component {
       turn: 1,
       myTurn: false,
       round: 1,
-      draftedPlayer: {},
-
+      overallPick: 1,
+      draftedPlayer: {}
     };
   }
 
@@ -42,10 +42,16 @@ class Draft extends React.Component {
     );
     this.state.teamPlayers.push(autoPickedPlayer);
     if (this.state.round % 2 === 1) {
-      this.setState({turn: this.state.turn + 1});
+      this.setState({
+        turn: this.state.turn + 1,
+        overallPick: this.state.overallPick + 1
+      });
     }
     if (this.state.round % 2 === 0) {
-      this.setState({turn: this.state.turn - 1});
+      this.setState({
+        turn: this.state.turn - 1,
+        overallPick: this.state.overallPick + 1
+      });
     }
   };
 
@@ -68,11 +74,19 @@ class Draft extends React.Component {
     }
     // Once turn reaches 11, add a round and decrement turn
     if (this.state.turn === 11) {
-      this.setState({round: this.state.round + 1, turn: this.state.turn - 1});
+      this.setState({
+        round: this.state.round + 1,
+        turn: this.state.turn - 1
+        // overallPick: this.state.overallPick + 1
+      });
     }
     // Once turn reaches 0, add a round and increment turn
     if (this.state.turn === 0) {
-      this.setState({round: this.state.round + 1, turn: this.state.turn + 1});
+      this.setState({
+        round: this.state.round + 1,
+        turn: this.state.turn + 1
+        // overallPick: this.state.overallPick + 1
+      });
     }
     if (
       // Odd round
@@ -84,9 +98,13 @@ class Draft extends React.Component {
       console.log(
         `CPU drafted: ${draftedPlayer.displayName} at ${this.state.turn}`
       );
-      this.setState({turn: this.state.turn + 1, draftedPlayer});
+      this.setState({
+        turn: this.state.turn + 1,
+        overallPick: this.state.overallPick + 1,
+        draftedPlayer
+      });
       if (this.state.selection[0] === draftedPlayer.playerId) {
-        this.setState({selection: []})
+        this.setState({selection: []});
       }
     }
     // Even round
@@ -99,10 +117,14 @@ class Draft extends React.Component {
         `CPU drafted: ${draftedPlayer.displayName} at ${this.state.turn}`
       );
       // Set state to turn +1 & place draftedPlayer into state
-      this.setState({turn: this.state.turn - 1, draftedPlayer});
+      this.setState({
+        turn: this.state.turn - 1,
+        overallPick: this.state.overallPick + 1,
+        draftedPlayer
+      });
 
-      if (this.state.selection[0]=== draftedPlayer.playerId) {
-        this.setState({selection: []})
+      if (this.state.selection[0] === draftedPlayer.playerId) {
+        this.setState({selection: []});
       }
     }
     // Individual turn
@@ -160,6 +182,7 @@ class Draft extends React.Component {
         teamPlayers,
         myTurn: false,
         turn: this.state.turn + 1,
+        overallPick: this.state.overallPick + 1,
         draftedPlayer: draftedPlayerByUser[0]
       });
     }
@@ -170,6 +193,7 @@ class Draft extends React.Component {
         teamPlayers,
         myTurn: false,
         turn: this.state.turn - 1,
+        overallPick: this.state.overallPick + 1,
         draftedPlayer: draftedPlayerByUser[0]
       });
     }
@@ -211,7 +235,7 @@ class Draft extends React.Component {
             <img src={logo} alt="MoxDraft home" title="Back to homepage" />
           </Link>
         </div>
-        <div className="d-flex draft-page">
+        <div className="d-flex ">
           <DraftOrder turn={this.state.turn} />
           <div className="draft-content d-flex flex-wrap w-100">
             <PlayerCard
@@ -230,6 +254,7 @@ class Draft extends React.Component {
               turn={this.state.turn}
               round={this.state.round}
               autoPick={this.autoPick}
+              overallPick={this.state.overallPick}
             />
 
             <CheckboxTable

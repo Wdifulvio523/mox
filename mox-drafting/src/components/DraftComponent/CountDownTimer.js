@@ -74,13 +74,34 @@ class CountDownTimer extends React.Component {
     return (
       <div className="timer d-flex flex-column text-center justify-content-center ">
         {this.state.pickIsOn === true ? (
-          <h3>Time Remaining: {this.state.pickTime}</h3>
+          <div>
+            <div className="on-the-clock">
+              <span>
+                ON THE CLOCK: <strong>YOU</strong>
+              </span>
+              <span>
+                RD: <strong>{this.props.round}</strong>
+              </span>
+              <span>
+                PICK: <strong>{this.props.overallPick}</strong>
+              </span>
+            </div>
+            <h3 className="time-remaining">
+              {/* Time Remaining: <br /> */}
+              {this.state.pickTime < 10
+                ? `0:0${this.state.pickTime}`
+                : `0:${this.state.pickTime}`}
+            </h3>
+          </div>
         ) : (
-          <h3>Draft Begins: {this.state.draftTime}</h3>
+          <h3>
+            Draft Begins: <br />
+            {this.state.draftTime}
+          </h3>
         )}
         {this.state.draftTime === 3 ? (
           <button
-            className="w-50 mx-auto btn btn-success"
+            className="w-30 mx-auto btn btn-success start-btn"
             onClick={() => {
               this.startTimer();
               this.autoDraftOnClick();

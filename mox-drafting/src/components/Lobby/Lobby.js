@@ -25,34 +25,42 @@ export default class Lobby extends Component {
 
   render() {
     return (
-      <div>
+      <div className="lobby">
         <div className="nav-bar">
           <Link exact to="/">
-            <img src={logo} alt="MoxDraft home" title="Back to homepage"/>
+            <img src={logo} alt="MoxDraft home" title="Back to homepage" />
           </Link>
         </div>
         <div>
           <h2>Lobby</h2>
         </div>
-        <table class="table"> 
+        <table class="table">
           <thead>
             <tr>
-              <th scope="col"><h4 className="text-center">Format</h4></th>
-              <th scope="col"><h4 className="text-center">Teams</h4></th>
-              <th scope="col"><h4 className="text-center">Open Slots</h4></th>
-              <th scope="col"><h4 className="text-center">Starts In</h4></th>
+              <th scope="col">
+                <h4 className="text-center">Format</h4>
+              </th>
+              <th scope="col">
+                <h4 className="text-center">Teams</h4>
+              </th>
+              <th scope="col">
+                <h4 className="text-center">Open Slots</h4>
+              </th>
+              <th scope="col">
+                <h4 className="text-center">Starts In</h4>
+              </th>
             </tr>
           </thead>
           <tbody>
-            <LobbyRow starting='5' scoring='PPR' teams='10'/>
-            <LobbyRow starting='5'scoring='Half-PPR' teams='10'/>
-            <LobbyRow starting='10'scoring='Standard'teams='10'/>
-            <LobbyRow starting='5'scoring='PPR'teams='12'/>
-            <LobbyRow starting='5'scoring='Half-PPR'teams='12'/>
-            <LobbyRow starting='10'scoring='Standard'teams='12'/>
-            <LobbyRow starting='5'scoring='PPR'teams='14'/>
-            <LobbyRow starting='5'scoring='Half-PPR'teams='14'/>
-            <LobbyRow starting='10' scoring='Standard' teams='14'/> 
+            <LobbyRow starting="5" scoring="PPR" teams="10" />
+            <LobbyRow starting="5" scoring="Half-PPR" teams="10" />
+            <LobbyRow starting="10" scoring="Standard" teams="10" />
+            <LobbyRow starting="5" scoring="PPR" teams="12" />
+            <LobbyRow starting="5" scoring="Half-PPR" teams="12" />
+            <LobbyRow starting="10" scoring="Standard" teams="12" />
+            <LobbyRow starting="5" scoring="PPR" teams="14" />
+            <LobbyRow starting="5" scoring="Half-PPR" teams="14" />
+            <LobbyRow starting="10" scoring="Standard" teams="14" />
           </tbody>
         </table>
       </div>

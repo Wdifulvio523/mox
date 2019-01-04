@@ -4,6 +4,7 @@
 }
 .card {
   border-radius: 10px;
+  margin-bottom: 15px;
 }
 .card-header {
   color: #ffffff;
@@ -38,7 +39,7 @@
   bottom: 0;
   background-color: rgba(115, 115, 115, 0.35);
   border-radius: 10px;
- 
+
   z-index: 2;
 }
 .text {
