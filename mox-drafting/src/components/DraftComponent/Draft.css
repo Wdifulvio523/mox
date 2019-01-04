@@ -72,6 +72,11 @@
   height: 286px;
 }
 
+.player-card .player-info {
+  margin: 0 0 0 -15px;
+  width: calc(100% + 30px);
+}
+
 .player-stats,
 .team-logo {
   height: 264px;
