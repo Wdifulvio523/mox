@@ -76,7 +76,6 @@
 
 /* Player Card */
 .player-card {
-  /* border: 1px solid #212121; */
   width: 53%;
   height: 286px;
   position: relative;
@@ -86,6 +85,7 @@
   margin: 0 0 0 -15px;
   width: calc(100% + 30px);
 }
+
 
 .player-stats,
 .team-logo {
@@ -141,3 +141,4 @@
   margin-right: 50px;
   margin-left: 12px;
 }
+

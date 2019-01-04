@@ -1,8 +1,10 @@
 import React from "react";
 import "./Draft.css";
+
 import "./team-colors.css";
 import {teamArray} from "../../server";
 import nfl from "./team-logos/nfl.gif";
+
 
 const PlayerCard = props => {
   const selectedPlayer = props.playerPool.filter(player => {
