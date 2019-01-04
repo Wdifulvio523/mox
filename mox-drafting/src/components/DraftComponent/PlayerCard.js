@@ -18,7 +18,19 @@ const PlayerCard = props => {
     <div className="player-card d-flex ">
       <section className="container-fluid">
         <div className="row">
-          <div className="col-6  bg-dark   player-stats">player stats</div>
+          <div className="col-6  bg-dark   player-stats">
+          {selectedPlayer.length !== 0 ? (
+                  <div class="d-flex text-center justify-content-center display-4 flex-column h-100">
+                    <span>{selectedPlayer[0].displayName} </span>
+                    <div>
+                      <span>{selectedPlayer[0].position} </span>
+                      <span>{selectedPlayer[0].team} </span>
+                      <span>{`Bye:${selectedPlayer[0].byeWeek}`} </span>
+                    </div>
+                  </div>
+                ) : null}
+            
+          </div>
           <div className="col-6  bg-dkgray   team-logo">
             <img
               className="h-100 w-100"

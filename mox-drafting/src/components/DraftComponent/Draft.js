@@ -7,6 +7,7 @@ import TeamTable from "./TeamTable";
 import PlayerCard from "./PlayerCard";
 import CountDownTimer from "./CountDownTimer";
 import ReactTable from "react-table";
+import CompletionModal from "./CompletionModal";
 import checkboxHOC from "react-table/lib/hoc/selectTable";
 import "react-table/react-table.css";
 import "./Draft.css";
@@ -271,6 +272,7 @@ class Draft extends React.Component {
             />
 
             <TeamTable teamPlayers={this.state.teamPlayers} />
+            
           </div>
         </div>
       </div>
