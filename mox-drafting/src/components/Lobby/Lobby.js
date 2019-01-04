@@ -34,9 +34,7 @@ export default class Lobby extends Component {
         <div className="banner">
             
         </div>
-        <div>
-          <h2>Lobby</h2>
-        </div>
+        <h2 className="text-center display-2 mb-4">Join a Draft</h2>
         <table class="table">
           <thead>
             <tr>

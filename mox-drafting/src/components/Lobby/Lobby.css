@@ -3,8 +3,9 @@
   text-align: center;
   margin: -80px auto 0 auto;
   width: 100%;
-  position: absolute;
+  position: fixed;
   left: 0;
+  z-index: 1;
 }
 
 .nav-bar img {
@@ -28,7 +29,8 @@
   height: 350px;
   width: 100%;
   max-width: 900px;
-  background:  url(https://media.giphy.com/media/4GXLbgLH5Vf8M96Zvw/giphy.gif) no-repeat center center fixed; 
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 59%, rgba(221, 8, 8, 0.438) 100%), url(https://media.giphy.com/media/4GXLbgLH5Vf8M96Zvw/giphy.gif) no-repeat center center fixed; 
   background-size: cover;
-  margin: 0 auto;
+
+  margin: 20px auto;
 }
