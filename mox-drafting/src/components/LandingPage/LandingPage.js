@@ -11,10 +11,10 @@ class LandingPage extends React.Component {
       <div className="landing-page">
         <section className="container-fluid">
           <div className="row">
-            <div className="col">
+            <div className="col-7">
               <Jumbotron />
             </div>
-            <div className="col">
+            <div className="col-5">
               <Rooms />
               <ComingSoon />
             </div>

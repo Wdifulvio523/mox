@@ -19,9 +19,9 @@ p {
 }
 
 .rooms button {
-  border: 1px solid rgb(51, 98, 185);
+  /* border: 1px solid rgb(51, 98, 185);
   background: rgb(74, 128, 209);
-  color: white;
+  color: white; */
   font-size: 16px;
   cursor: pointer;
   margin: 0 auto;
@@ -30,6 +30,6 @@ p {
 }
 
 .rooms button:hover {
-  background: rgb(51, 98, 185);
+  /* background: rgb(51, 98, 185); */
   transition: 0.2s;
 }

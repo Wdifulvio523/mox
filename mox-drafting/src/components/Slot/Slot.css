@@ -1,15 +1,18 @@
 .slot {
-  background: #222;
-  color: #aeaeae;
+  background-color: none;
+  color: #d73426;
   padding: 7px 0;
-  font-size: 10px;
+  font-size: 1.2rem;
+  font-weight: 600;
   cursor: pointer;
   text-align: center;
 }
 
 .slot:hover {
-  background: #c43629c5;
+  background-color: #81261d;
   color: white;
+  transition-duration: 0.55s;
+  text-decoration: none;
 }
 
 .slot .disabled { 

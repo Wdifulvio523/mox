@@ -2,7 +2,7 @@ import React from "react";
 import {Link} from "react-router-dom";
 import logo from "../moxdraft-logo-1.png";
 import DraftOrder from "./DraftOrder";
-import playerPoolData from "../../server";
+import {playerPoolData, logoArray} from "../../server";
 import TeamTable from "./TeamTable";
 import PlayerCard from "./PlayerCard";
 import CountDownTimer from "./CountDownTimer";
@@ -18,15 +18,16 @@ class Draft extends React.Component {
     super(props);
     this.state = {
       playerPool: playerPoolData.DraftRankings,
+      logoArray: logoArray,
       teamPlayers: [],
       selection: [],
-      // selection: "",
       pickSelected: false,
       draftPosition: 2,
       turn: 1,
       myTurn: false,
       round: 1,
-      draftedPlayer: {}
+      draftedPlayer: {},
+
     };
   }
 
@@ -61,62 +62,49 @@ class Draft extends React.Component {
 
   //Autodrafting when it's not the user's turn
   autoDraft = () => {
-    // console.log(this.state.playerPool.length);
+    // If playerpool is empty, don't do anything.
     if (!this.state.playerPool.length) {
       return;
     }
+    // Once turn reaches 11, add a round and decrement turn
     if (this.state.turn === 11) {
       this.setState({round: this.state.round + 1, turn: this.state.turn - 1});
     }
+    // Once turn reaches 0, add a round and increment turn
     if (this.state.turn === 0) {
       this.setState({round: this.state.round + 1, turn: this.state.turn + 1});
     }
-
     if (
       // Odd round
       // If not my turn or draft position turn
       this.state.turn !== this.state.draftPosition &&
       this.state.round % 2 === 1
     ) {
-      console.log("oddRound Conditional");
-      // shift first player out of playerPool Array
       const draftedPlayer = this.state.playerPool.shift();
       console.log(
         `CPU drafted: ${draftedPlayer.displayName} at ${this.state.turn}`
       );
-      // Set state to turn +1 & place draftedPlayer into state
       this.setState({turn: this.state.turn + 1, draftedPlayer});
+      if (this.state.selection[0] === draftedPlayer.playerId) {
+        this.setState({selection: []})
+      }
     }
     // Even round
     if (
-      // If not my turn or draft position turn
       this.state.turn !== this.state.draftPosition &&
-      // And round is even
       this.state.round % 2 === 0
     ) {
-      console.log("evenRound Conditional");
-      // shift first player out of playerPool Array
       const draftedPlayer = this.state.playerPool.shift();
       console.log(
         `CPU drafted: ${draftedPlayer.displayName} at ${this.state.turn}`
       );
       // Set state to turn +1 & place draftedPlayer into state
       this.setState({turn: this.state.turn - 1, draftedPlayer});
-    }
-    // End of round or beginning of round
-    /* if (this.state.turn === 10 || this.state.turn === 0) {
-      this.setState({round: this.state.round + 1});
-      const draftedPlayer = this.state.playerPool.shift();
-      console.log(
-        `Round`,
-        this.state.round,
-        "playerpool",
-        this.state.playerPool.length
-      );
-      // set the draftedPlayer into state
-      this.setState({draftedPlayer});
-    } */
 
+      if (this.state.selection[0]=== draftedPlayer.playerId) {
+        this.setState({selection: []})
+      }
+    }
     // Individual turn
     // if state.turn is equal to state.draftPosition myTurn becomes true
     if (this.state.turn === this.state.draftPosition) {
@@ -129,9 +117,9 @@ class Draft extends React.Component {
     let selection = [...this.state.selection];
     // let selection = this.state.selection;
     const keyIndex = selection.indexOf(key);
-    if (this.state.myTurn === false) {
-      return;
-    }
+    // if (this.state.myTurn === false) {
+    //   return;
+    // }
     if (keyIndex >= 0) {
       selection = [
         ...selection.slice(0, keyIndex),
@@ -220,7 +208,7 @@ class Draft extends React.Component {
       <div className="draft-page">
         <div className="nav-bar">
           <Link to="/">
-            <img src={logo} alt="MoxDraft home" />
+            <img src={logo} alt="MoxDraft home" title="Back to homepage" />
           </Link>
         </div>
         <div className="d-flex draft-page">
@@ -231,6 +219,8 @@ class Draft extends React.Component {
               selection={this.state.selection}
               draftPlayer={this.draftPlayer}
               pickSelectedHandler={this.pickSelectedHandler}
+              myTurn={this.state.myTurn}
+              logoArray={this.state.logoArray}
             />
 
             <CountDownTimer
@@ -254,17 +244,6 @@ class Draft extends React.Component {
               style={{height: "400px", width: "60%"}}
               {...checkboxProps}
             />
-
-            <button
-              className="btn btn-primary d-none"
-              onClick={event => {
-                event.preventDefault();
-                this.pickSelectedHandler();
-                this.draftPlayer();
-              }}
-            >
-              DRAFT PLAYER
-            </button>
 
             <TeamTable teamPlayers={this.state.teamPlayers} />
           </div>

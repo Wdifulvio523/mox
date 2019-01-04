@@ -1,10 +1,5 @@
-* {
-  box-sizing: border-box;
-}
-
-html {
-  font-size: 62.5%;
-}
+* { box-sizing: border-box; }
+html { font-size: 62.5%; }
 
 body {
   background-image: linear-gradient(
@@ -13,7 +8,6 @@ body {
     rgba(31, 31, 31, 1)
   );
   color: #ffffff;
-
   min-height: 100vh;
   font-size: 1.6rem;
 }
@@ -46,9 +40,7 @@ h5 {
   font-weight: 300;
 }
 
-strong {
-  font-weight: 600;
-}
+strong { font-weight: 600; }
 
 .App {
   max-width: 950px;
@@ -85,4 +77,10 @@ strong {
   color: #fff;
   background-color: #d73426;
   border-color: #d73426;
+}
+
+.btn-moxred:hover {
+  color: #fff;
+  background-color: #81261d;
+  border-color: #b9291c;
 }

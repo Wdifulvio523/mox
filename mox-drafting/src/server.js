@@ -1,4 +1,38 @@
-const playerPoolData = {
+import TB from './components/DraftComponent/team-logos/buccaneers.png'
+import SF from './components/DraftComponent/team-logos/49ers.png'
+import CHI from './components/DraftComponent/team-logos/bears.png'
+import CIN from './components/DraftComponent/team-logos/bengals.png'
+import BUF from './components/DraftComponent/team-logos/bills.png'
+import DEN from './components/DraftComponent/team-logos/broncos.png'
+import CLE from './components/DraftComponent/team-logos/browns.png'
+import ARI from './components/DraftComponent/team-logos/cardinals.png'
+import SD from './components/DraftComponent/team-logos/chargers.png'
+import KC from './components/DraftComponent/team-logos/chiefs.png'
+import IND from './components/DraftComponent/team-logos/colts.png'
+import DAL from './components/DraftComponent/team-logos/cowboys.png'
+import MIA from './components/DraftComponent/team-logos/dolphins.png'
+import PHI from './components/DraftComponent/team-logos/eagles.png'
+import ATL from './components/DraftComponent/team-logos/falcons.png'
+import NYG from './components/DraftComponent/team-logos/giants.gif'
+import JAX from './components/DraftComponent/team-logos/jaguars.png'
+import NYJ from './components/DraftComponent/team-logos/jets.png'
+import DET from './components/DraftComponent/team-logos/lions.png'
+import GB from './components/DraftComponent/team-logos/packers.png'
+import CAR from './components/DraftComponent/team-logos/panthers.png'
+import NE from './components/DraftComponent/team-logos/patriots.png'
+import OAK from './components/DraftComponent/team-logos/raiders.png'
+import STL from './components/DraftComponent/team-logos/rams.png'
+import BAL from './components/DraftComponent/team-logos/ravens.png'
+import WAS from './components/DraftComponent/team-logos/redskins.png'
+import NO from './components/DraftComponent/team-logos/saints.png'
+import SEA from './components/DraftComponent/team-logos/seahawks.png'
+import PIT from './components/DraftComponent/team-logos/steelers.png'
+import HOU from './components/DraftComponent/team-logos/texans.png'
+import TEN from './components/DraftComponent/team-logos/titans.png'
+import MIN from './components/DraftComponent/team-logos/vikings.png'
+
+
+export const playerPoolData = {
   PPR: 1,
   DraftRankings: [
     {
@@ -652,4 +686,133 @@ const playerPoolData = {
   ]
 };
 
-export default playerPoolData;
+
+
+export const logoArray = [
+  {
+  team: 'SF',
+  file: SF
+},
+{
+  team: 'CHI',
+  file: CHI
+},
+{
+  team: 'CIN',
+  file: CIN
+},
+{
+  team: 'BUF',
+  file: BUF
+},
+{
+  team: 'DEN',
+  file: DEN
+},
+{
+  team: 'CLE',
+  file: CLE
+},
+{
+  team: 'TB',
+  file: TB
+},
+{
+  team: 'ARI',
+  file: ARI
+},
+{
+  team: 'SD',
+  file: SD
+},
+{
+  team: 'KC',
+  file: KC
+},
+{
+  team: 'IND',
+  file: IND
+},
+{
+  team: 'DAL',
+  file: DAL
+},
+{
+  team: 'MIA',
+  file: MIA
+},
+{
+  team: 'PHI',
+  file: PHI
+},
+{
+  team: 'ATL',
+  file: ATL
+},
+{
+  team: 'NYG',
+  file: NYG
+},
+{
+  team: 'JAX',
+  file: JAX
+},  {
+  team: 'NYJ',
+  file: NYJ
+},  {
+  team: 'DET',
+  file: DET
+},  {
+  team: 'GB',
+  file: GB
+},  {
+  team: 'CAR',
+  file: CAR
+},
+{
+  team: 'NE',
+  file: NE
+},
+{
+  team: 'OAK',
+  file: OAK
+},
+{
+  team: 'STL',
+  file: STL
+},
+{
+  team: 'BAL',
+  file: BAL
+},
+{
+  team: 'WAS',
+  file: WAS
+},
+{
+  team: 'NO',
+  file: NO
+},
+{
+  team: 'SEA',
+  file: SEA
+},
+{
+  team: 'PIT',
+  file: PIT
+},
+{
+  team: 'HOU',
+  file: HOU
+},
+{
+  team: 'TEN',
+  file: TEN
+},
+{
+  team: 'MIN',
+  file: MIN
+},
+]
+
+
